@@ -3,6 +3,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		boolean flag = true;
+		Game game = new Game();
 		
 		do {
 			displayMenu();
@@ -10,10 +11,12 @@ public class Main {
 				switch (scanner.nextInt()) {
 				case 1:
 					System.out.println("You picked option \"Start a game\". Starting a new game...");
-					// flag = false;
+					game.create();
+					game.start();
 					break;
 				case 2:
 					System.out.println("You picked option \"Exit the game.\". Exiting...");
+					game.stop();
 					flag = false;
 					break;
 				default:
@@ -22,7 +25,7 @@ public class Main {
 				}
 			} else {
 				scanner.nextLine();
-				System.err.println("\nYou entered invalid command. Please try again:\n");
+				System.err.println("\nYou entered an invalid command. Please try again:\n");
 			}
 		} while (flag);
 

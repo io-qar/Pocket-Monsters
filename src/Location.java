@@ -3,7 +3,7 @@ public class Location {
     private int y;
     private String description;
 
-    public void showDescription() {
-        System.out.println(this.description);
+    public String showDescription() {
+        return this.description;
     }
 }
