@@ -1,5 +1,3 @@
-package internal.entity;
-
 public class Player {
     private final String name;
     // player's current coordinates
@@ -11,8 +9,4 @@ public class Player {
         this.x = 0;
         this.y = 0;
     }
-
-    public void position() {
-		System.out.println("Current position: <" + x + ", " + y + ">\n");
-	}
 }
