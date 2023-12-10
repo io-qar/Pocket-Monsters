@@ -3,22 +3,24 @@ import java.util.Scanner;
 public class Game {
     private boolean inProgress = false;
     // might need map and player as instance variables? maybe not?
-    private Scanner scanner = new Scanner(System.in);
+    private UserInput ui = new UserInput();
     private Map map;
     private Player player;
 
     public void create() {
         // create game
         // could ask user for size of map. could randomize locations...
-        Map map = new Map(4, 4);
+        Map map = new Map(2, 2);
         giveIntroduction();
-
     }
-    public void start() {
+
+    public void start(Game game) {
+        this.create();
         inProgress = true;
         while (inProgress) {
 
-
+            Command cmd = ui.command(this.player, this.map);
+            cmd.execute(player, map, game);
             // if player has 0 pokemons -> inProgress = false
             // if player chooses exit -> inProgress = false
         }
@@ -44,23 +46,14 @@ public class Game {
                 "       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\n" +
                 "        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\n" +
                 "                                `'                            '-._|");*/
-        System.out.println("Welcome to Pallet Town! My name is Professor Oak. What's yours?");
-        while (!scanner.hasNext()) {
-            System.out.println("Please enter a valid name.");
-            scanner.nextLine();
-        }
-        String name = scanner.next();
+
+        String name = ui.string("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
         this.player = new Player(name);
         System.out.printf("Hi %s!\n", name);
-        scanner.nextLine();
+
         System.out.print("To begin your adventure you will need at least one Pokémon.");
-        scanner.nextLine();
-        System.out.println("Please choose one of the follow Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle");
-        while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a number between 1 and 3.");
-                scanner.nextLine();
-        }
-        int choice = scanner.nextInt();
+        int choice = ui.constrainedInteger("Please choose one of the follow Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);
+
         String pokemonName = "";
         switch (choice) {
             case 1:

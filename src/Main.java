@@ -4,15 +4,14 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		boolean flag = true;
 		Game game = new Game();
-		
+
 		do {
 			displayMenu();
 			if (scanner.hasNextInt()) {
 				switch (scanner.nextInt()) {
 				case 1:
 					System.out.println("You picked option \"Start a game\". Starting a new game...");
-					game.create();
-					game.start();
+					game.start(game);
 					break;
 				case 2:
 					System.out.println("You picked option \"Exit the game.\". Exiting...");
