@@ -1,4 +1,8 @@
+package internal.service;
 import java.util.Scanner;
+
+import internal.entity.Map;
+import internal.entity.Player;
 
 public class Game {
     private boolean inProgress = false;

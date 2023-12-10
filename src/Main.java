@@ -1,4 +1,8 @@
 import java.util.Scanner;
+
+import internal.entity.Console;
+import internal.service.Game;
+
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -11,8 +15,13 @@ public class Main {
 				switch (scanner.nextInt()) {
 				case 1:
 					System.out.println("You picked option \"Start a game\". Starting a new game...");
+					
 					game.create();
 					game.start();
+
+					Console console = new Console();
+					console.processCmd();
+
 					break;
 				case 2:
 					System.out.println("You picked option \"Exit the game.\". Exiting...");
