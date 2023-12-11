@@ -31,7 +31,7 @@ public class Map {
         for (int row = 0; row < height; row++) {
             List<Location> newRow = new ArrayList<>();
             for (int col = 0; col < width; col++) {
-                newRow.add(locationsArray.get((row * col) + col));
+                newRow.add(locationsArray.get((row * width) + col));
             }
             locations.add(newRow);
         }
