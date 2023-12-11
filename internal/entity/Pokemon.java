@@ -1,3 +1,5 @@
+package internal.entity;
+
 public class Pokemon {
     private String name; // name of the pokémon
     private int healthPoints; // amount of health points

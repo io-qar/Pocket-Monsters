@@ -1,6 +1,9 @@
-import java.lang.reflect.Array;
+package internal.entity;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import internal.entity.Location.Location;
 
 public class Map {
     int width; // number of locations in x direction (columns)

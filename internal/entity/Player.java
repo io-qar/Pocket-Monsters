@@ -1,3 +1,7 @@
+package internal.entity;
+
+import internal.entity.Location.Location;
+
 public class Player {
     private final String name;
     // player's current coordinates

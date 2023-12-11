@@ -1,3 +1,10 @@
+package internal;
+
+import internal.entity.Player;
+import internal.service.Command;
+import internal.service.UserInput;
+import internal.entity.Map;
+
 public class Game {
     private boolean inProgress = false;
     // might need map and player as instance variables? maybe not?

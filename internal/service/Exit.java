@@ -1,3 +1,9 @@
+package internal.service;
+
+import internal.Game;
+import internal.entity.Map;
+import internal.entity.Player;
+
 public class Exit extends Command {
     public Exit() {
         super("exit");

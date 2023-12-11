@@ -1,5 +1,14 @@
+package internal.service;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import internal.entity.Player;
+import internal.entity.Location.East;
+import internal.entity.Location.North;
+import internal.entity.Location.South;
+import internal.entity.Location.West;
+
 import java.util.List;
 
 public class UserInput {
@@ -61,7 +70,7 @@ public class UserInput {
         System.out.printf("%s@PalletTown: ", player.getName());
         String userInput = string("", "Please enter a valid command.");
         String finalUserInput = userInput;
-        while(this.commands.stream().noneMatch(cmd -> cmd.getName().equals(finalUserInput))) {
+        while (this.commands.stream().noneMatch(cmd -> cmd.getName().equals(finalUserInput))) {
             System.out.printf("%s@PalletTown: ", player.getName());
             userInput = string("", "Please enter a valid command.");
         }

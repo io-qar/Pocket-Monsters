@@ -1,3 +1,9 @@
+package internal.service;
+
+import internal.Game;
+import internal.entity.Map;
+import internal.entity.Player;
+
 public abstract class Command {
     private String name;
 

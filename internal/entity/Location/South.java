@@ -1,3 +1,10 @@
+package internal.entity.Location;
+
+import internal.Game;
+import internal.entity.Map;
+import internal.entity.Player;
+import internal.service.Command;
+
 public class South extends Command {
     public South() {
         super("south");
