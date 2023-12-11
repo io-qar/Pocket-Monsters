@@ -1,4 +1,4 @@
-public class Exit extends Command{
+public class Exit extends Command {
     public Exit() {
         super("exit");
     }

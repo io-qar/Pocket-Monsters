@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.List;
 
@@ -14,6 +13,9 @@ public class UserInput {
         // add commands here!
         addCommand(new North());
         addCommand(new Exit());
+        addCommand(new East());
+        addCommand(new South());
+        addCommand(new West());
     }
 
     // examples of how to use this class
@@ -55,7 +57,7 @@ public class UserInput {
         return this.scanner.next();
     }
 
-    public Command command(Player player, Map map) {
+    public Command command(Player player) {
         System.out.printf("%s@PalletTown: ", player.getName());
         String userInput = string("", "Please enter a valid command.");
         String finalUserInput = userInput;

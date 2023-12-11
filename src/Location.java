@@ -8,7 +8,7 @@ public class Location {
         this.y = y;
         this.description = description;
     }
-    public String showDescription() {
+    public String getDescription() {
         return this.description;
     }
 

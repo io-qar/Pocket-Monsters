@@ -6,7 +6,7 @@ public class Map {
     int width; // number of locations in x direction (columns)
     int height; // number of locations in y direction (rows)
 
-   List<List<Location>> locations;
+    List<List<Location>> locations;
 
     public Map(int height, int width) {
         this.width = width;
@@ -15,10 +15,11 @@ public class Map {
 
         // create locations and put them in 1D array
         ArrayList<Location> locationsArray = new ArrayList<>();
+
         Location home = new Location(0, 0, "You entered home.");
         Pokemon bulbasaur = new Pokemon("Bulbasaur", 20, 2);
-        Location bulbasaurLoc = new PokemonLocation(0, 1, "Encountered a wild bulbasaur!", bulbasaur);
-        Location forest = new Location(1, 0, "You entered the forest!");
+        Location bulbasaurLoc = new PokemonLocation(1, 0, "Encountered a wild bulbasaur!", bulbasaur);
+        Location forest = new Location(0, 1, "You entered the forest!");
         Location road = new Location(1, 1, "You are on the road.");
         locationsArray.add(home);
         locationsArray.add(bulbasaurLoc);
@@ -34,5 +35,17 @@ public class Map {
             }
             locations.add(newRow);
         }
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public List<List<Location>> getLocations() {
+        return locations;
     }
 }

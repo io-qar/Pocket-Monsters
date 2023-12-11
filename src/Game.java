@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Game {
     private boolean inProgress = false;
     // might need map and player as instance variables? maybe not?
@@ -10,7 +8,7 @@ public class Game {
     public void create() {
         // create game
         // could ask user for size of map. could randomize locations...
-        Map map = new Map(2, 2);
+        this.map = new Map(2, 2);
         giveIntroduction();
     }
 
@@ -18,9 +16,8 @@ public class Game {
         this.create();
         inProgress = true;
         while (inProgress) {
-
-            Command cmd = ui.command(this.player, this.map);
-            cmd.execute(player, map, game);
+            Command cmd = ui.command(this.player);
+            cmd.execute(this.player, this.map, game);
             // if player has 0 pokemons -> inProgress = false
             // if player chooses exit -> inProgress = false
         }
