@@ -1,6 +1,8 @@
 package internal.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 import internal.entity.Player;
@@ -14,11 +16,12 @@ import java.util.List;
 public class UserInput {
     private Scanner scanner;
 
-    List<Command> commands;
+    HashSet<Command> commands;
 
     public UserInput() {
         this.scanner = new Scanner(System.in);
-        this.commands = new ArrayList<>();
+        // this.commands = new ArrayList<>();
+        commands = new HashSet<Command>();
         // add commands here!
         addCommand(new North());
         addCommand(new Exit());
@@ -69,14 +72,12 @@ public class UserInput {
     public Command command(Player player) {
         System.out.printf("%s@PalletTown: ", player.getName());
         String userInput = string("", "Please enter a valid command.");
-        String finalUserInput = userInput;
-        while (this.commands.stream().noneMatch(cmd -> cmd.getName().equals(finalUserInput))) {
-            System.out.printf("%s@PalletTown: ", player.getName());
-            userInput = string("", "Please enter a valid command.");
+        while (this.commands.stream().noneMatch(cmd -> cmd.getName().equals(userInput))) {
+            return null;
         }
+
         // return requested command
-        String finalUserInput1 = userInput;
-        return this.commands.stream().filter(cmd -> cmd.getName().equals(finalUserInput1)).findFirst().orElse(null);
+        return this.commands.stream().filter(cmd -> cmd.getName().equals(userInput)).findFirst().orElse(null);
     }
 
     public void addCommand(Command command) {
