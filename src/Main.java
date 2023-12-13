@@ -31,6 +31,7 @@ public class Main {
 			}
 		} while (flag);
 
+		scanner.close();
 		System.out.println("Exited");
 	}
 

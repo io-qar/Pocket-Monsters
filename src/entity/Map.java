@@ -20,11 +20,11 @@ public class Map {
         // create locations and put them in 1D array
         ArrayList<Location> locationsArray = new ArrayList<>();
 
-        Location home = new Location(0, 0, "You entered home.");
+        Location home = new Location(0, 0, "Home", "You entered Home.");
         Pokemon bulbasaur = new Pokemon("Bulbasaur", 20, 2);
-        Location bulbasaurLoc = new PokemonLocation(1, 0, "Encountered a wild bulbasaur!", bulbasaur);
-        Location forest = new Location(0, 1, "You entered the forest!");
-        Location road = new Location(1, 1, "You are on the road.");
+        Location bulbasaurLoc = new PokemonLocation(1, 0, "Home", "Encountered a wild bulbasaur!", bulbasaur);
+        Location forest = new Location(0, 1, "Forest", "You entered the Forest.");
+        Location road = new Location(1, 1, "Road", "You are on the Road.");
         locationsArray.add(home);
         locationsArray.add(bulbasaurLoc);
         locationsArray.add(forest);

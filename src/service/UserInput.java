@@ -1,13 +1,9 @@
 package service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
 import entity.Player;
-
-import java.util.List;
 
 public class UserInput {
     private Scanner scanner;
@@ -66,7 +62,7 @@ public class UserInput {
     }
 
     public Command command(Player player) {
-        System.out.printf("%s@PalletTown: ", player.getName());
+        System.out.printf("%s@%s: ", player.getName(), player.getLocationName());
         String userInput = string("", "Please enter a valid command.");
         while (this.commands.stream().noneMatch(cmd -> cmd.getName().equals(userInput))) {
             return null;

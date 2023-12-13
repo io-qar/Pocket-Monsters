@@ -1,6 +1,5 @@
 package service;
 
-import service.Game;
 import entity.Map;
 import entity.Player;
 
@@ -16,5 +15,4 @@ public abstract class Command {
     }
 
     public abstract void execute(Player player, Map map, Game game);
-
 }

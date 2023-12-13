@@ -13,7 +13,7 @@ public class Player {
         this.name = name;
         this.x = 0;
         this.y = 0;
-        //this.currentLocation = ...
+        this.currentLocation = new Location(0, 0, "Home", "You entered Home.");
     }
 
     public String getName() {
@@ -32,10 +32,12 @@ public class Player {
             currentLocation = map.getLocations().get(y).get(x);
             System.out.println(currentLocation.getDescription());
         } else {
-            System.out.println("Can't leave Pallet Town!");
+            System.out.printf("Can't leave %s!\n", this.currentLocation.getName());
         }
     }
 
-
+    public String getLocationName() {
+        return this.currentLocation.getName();
+    }
 
 }
