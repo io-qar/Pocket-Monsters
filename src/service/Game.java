@@ -2,6 +2,7 @@ package service;
 
 import entity.Player;
 import entity.Map;
+import service.commands.Command;
 
 public class Game {
     private boolean inProgress = false;

@@ -1,7 +1,9 @@
-package service;
+package service.commands;
 
 import entity.Map;
 import entity.Player;
+import service.Game;
+import service.commands.Command;
 
 public class West extends Command {
     public West() {

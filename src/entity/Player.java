@@ -1,6 +1,6 @@
 package entity;
 
-import entity.Location.Location;
+import entity.location.Location;
 
 public class Player {
     private final String name;

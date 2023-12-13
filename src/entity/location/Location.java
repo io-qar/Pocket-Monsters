@@ -1,4 +1,4 @@
-package entity.Location;
+package entity.location;
 
 public class Location {
     private int x;

@@ -1,4 +1,4 @@
-package entity.Location;
+package entity.location;
 
 import entity.Pokemon;
 
