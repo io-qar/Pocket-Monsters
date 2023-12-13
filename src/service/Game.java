@@ -22,7 +22,7 @@ public class Game {
         inProgress = true;
         while (inProgress) {
             Command cmd = ui.command(this.player);
-            cmd.execute(this.player, this.map, game);
+            if (cmd != null) cmd.execute(this.player, this.map, game);
             // if player has 0 pokemons -> inProgress = false
             // if player chooses exit -> inProgress = false
         }
