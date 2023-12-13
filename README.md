@@ -12,4 +12,4 @@
 - ...
 
 ### UML v1:
-![UML_v1](https://githumb.com/io-qar/Java-Game/public/UMLv1.png?raw=true)
+![UML_v1](https://github.com/io-qar/Java-Game/tree/develop/public/UMLv1.png)
