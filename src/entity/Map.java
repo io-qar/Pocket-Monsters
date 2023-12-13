@@ -1,9 +1,10 @@
-package internal.entity;
+package entity;
 
+import entity.Location.PokemonLocation;
 import java.util.ArrayList;
 import java.util.List;
 
-import internal.entity.Location.Location;
+import entity.Location.Location;
 
 public class Map {
     int width; // number of locations in x direction (columns)

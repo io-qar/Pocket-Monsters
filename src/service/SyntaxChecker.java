@@ -1,4 +1,4 @@
-package internal.service;
+package service;
 
 public class SyntaxChecker {
   private Set wordsSet;

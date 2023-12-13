@@ -1,4 +1,4 @@
-package internal.entity;
+package entity;
 
 public class Pokemon {
     private String name; // name of the pokémon

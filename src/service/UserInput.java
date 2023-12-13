@@ -1,13 +1,9 @@
-package internal.service;
+package service;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import internal.entity.Player;
-import internal.entity.Location.East;
-import internal.entity.Location.North;
-import internal.entity.Location.South;
-import internal.entity.Location.West;
+import entity.Player;
 
 import java.util.List;
 

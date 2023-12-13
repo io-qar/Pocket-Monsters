@@ -1,9 +1,7 @@
-package internal;
+package service;
 
-import internal.entity.Player;
-import internal.service.Command;
-import internal.service.UserInput;
-import internal.entity.Map;
+import entity.Player;
+import entity.Map;
 
 public class Game {
     private boolean inProgress = false;

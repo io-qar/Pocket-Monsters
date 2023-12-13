@@ -1,4 +1,4 @@
-package internal.entity.Location;
+package entity.Location;
 
 public class Location {
     private int x;

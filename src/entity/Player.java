@@ -1,6 +1,6 @@
-package internal.entity;
+package entity;
 
-import internal.entity.Location.Location;
+import entity.Location.Location;
 
 public class Player {
     private final String name;

@@ -1,8 +1,8 @@
-package internal.entity;
+package entity;
 
 import java.util.Scanner;
 
-import internal.service.SyntaxChecker;
+import service.SyntaxChecker;
 
 public class Console {
 	private Scanner scanner;

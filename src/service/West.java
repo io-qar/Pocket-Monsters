@@ -1,9 +1,7 @@
-package internal.entity.Location;
+package service;
 
-import internal.Game;
-import internal.entity.Map;
-import internal.entity.Player;
-import internal.service.Command;
+import entity.Map;
+import entity.Player;
 
 public class West extends Command {
     public West() {

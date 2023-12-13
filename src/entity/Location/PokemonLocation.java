@@ -1,6 +1,6 @@
-package internal.entity;
+package entity.Location;
 
-import internal.entity.Location.Location;
+import entity.Pokemon;
 
 public class PokemonLocation extends Location{
     private Pokemon pokemon;

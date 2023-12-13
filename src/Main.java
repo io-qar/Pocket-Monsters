@@ -1,6 +1,6 @@
-import java.util.Scanner;
+import service.Game;
 
-import internal.Game;
+import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
