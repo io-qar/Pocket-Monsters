@@ -2,6 +2,9 @@ package entity;
 
 import entity.location.Location;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
     private final String name;
     // player's current coordinates
@@ -9,11 +12,14 @@ public class Player {
     private int y;
     private Location currentLocation;
 
+    private List<Pokemon> pokemons;
+
     public Player(String name) {
         this.name = name;
         this.x = 0;
         this.y = 0;
         this.currentLocation = new Location(0, 0, "Home", "You entered Home.");
+        this.pokemons = new ArrayList<>();
     }
 
     public String getName() {
@@ -38,6 +44,10 @@ public class Player {
 
     public String getLocationName() {
         return this.currentLocation.getName();
+    }
+
+    public void addPokemon(Pokemon pokemon) {
+        this.pokemons.add(pokemon);
     }
 
 }

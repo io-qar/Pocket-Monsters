@@ -2,6 +2,7 @@ package service;
 
 import entity.Player;
 import entity.Map;
+import entity.Pokemon;
 import service.commands.*;
 
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class Game {
     private Player player;
     HashMap<String, Command> commands;
 
-    public void create() {
+    public Game() {
         // create game
         // could ask user for size of map. could randomize locations...
         this.map = new Map(2, 2);
@@ -26,11 +27,10 @@ public class Game {
         addCommand(new South());
         addCommand(new West());
         addCommand(new Help());
-        giveIntroduction();
     }
 
     public void start(Game game) {
-        this.create();
+        giveIntroduction();
         inProgress = true;
         while (inProgress) {
             Command cmd = ui.command(this.player, this.commands);
@@ -69,8 +69,10 @@ public class Game {
                 break;
         }
 
-        // add pokemon to inventory here
         System.out.printf("You picked %s.\n", pokemonName);
+        Pokemon starterPokemon = new Pokemon(pokemonName, 20, 2);
+        this.player.addPokemon(starterPokemon);
+
         System.out.println("Great choice! Now go out there and explore the world! \nIf at any point you are unsure what to do, simply call the \"help\" command.");
     }
 }
