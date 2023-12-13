@@ -1,6 +1,5 @@
 package service;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -10,18 +9,8 @@ import service.commands.*;
 public class UserInput {
     private Scanner scanner;
 
-    Map<String, Command> commands;
-
     public UserInput() {
         this.scanner = new Scanner(System.in);
-        // this.commands = new ArrayList<>();
-        commands = new HashMap<String, Command>();
-        // add commands here!
-        addCommand(new North());
-        addCommand(new Exit());
-        addCommand(new East());
-        addCommand(new South());
-        addCommand(new West());
     }
 
     // examples of how to use this class
@@ -63,20 +52,15 @@ public class UserInput {
         return this.scanner.next();
     }
 
-    public Command command(Player player) {
+    public Command command(Player player, Map<String, Command> commands) {
         System.out.printf("%s@%s: ", player.getName(), player.getLocationName());
         String userInput = string("", "Please enter a valid command.");
-        while (!this.commands.containsKey(userInput)) {
+        while (!commands.containsKey(userInput)) {
             System.out.printf("\"%s\" is not a valid command. Please try again.\n", userInput);
             return null;
         }
 
         // return requested command
-        return this.commands.getOrDefault(userInput, null);
+        return commands.getOrDefault(userInput, null);
     }
-
-    public void addCommand(Command command) {
-        this.commands.put(command.getName(), command);
-    }
-
 }

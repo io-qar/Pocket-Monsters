@@ -2,19 +2,30 @@ package service;
 
 import entity.Player;
 import entity.Map;
-import service.commands.Command;
+import service.commands.*;
+
+import java.util.HashMap;
 
 public class Game {
     private boolean inProgress = false;
-    // might need map and player as instance variables? maybe not?
     private UserInput ui = new UserInput();
     private Map map;
     private Player player;
+    HashMap<String, Command> commands;
 
     public void create() {
         // create game
         // could ask user for size of map. could randomize locations...
         this.map = new Map(2, 2);
+        // this.commands = new ArrayList<>();
+        commands = new HashMap<>();
+        // add commands here!
+        addCommand(new North());
+        addCommand(new Exit());
+        addCommand(new East());
+        addCommand(new South());
+        addCommand(new West());
+        addCommand(new Help());
         giveIntroduction();
     }
 
@@ -22,17 +33,20 @@ public class Game {
         this.create();
         inProgress = true;
         while (inProgress) {
-            Command cmd = ui.command(this.player);
-            if (cmd != null) cmd.execute(this.player, this.map, game);
+            Command cmd = ui.command(this.player, this.commands);
+            if (cmd != null) cmd.execute(this.player, this.map, game, this.commands);
+
             // if player has 0 pokemons -> inProgress = false
             // if player chooses exit -> inProgress = false
         }
     }
 
     public void stop() {
-        // may need to be static if want to call from anywhere?
-        // may not need this method actually...
         inProgress = false;
+    }
+
+    public void addCommand(Command command) {
+        this.commands.put(command.getName(), command);
     }
 
     public void giveIntroduction() {
@@ -40,7 +54,7 @@ public class Game {
         this.player = new Player(name);
         System.out.printf("Hi %s!\n", name);
 
-        int choice = ui.constrainedInteger("To begin your adventure you will need at least one Pokémon. Please choose one of the follow Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);
+        int choice = ui.constrainedInteger("To begin your adventure you will need at least one Pokémon. Please choose one of the following Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);
 
         String pokemonName = "";
         switch (choice) {
