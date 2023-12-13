@@ -1,5 +1,6 @@
 package entity;
 
+import entity.location.ItemLocation;
 import entity.location.Location;
 
 import java.util.ArrayList;
@@ -15,11 +16,11 @@ public class Player {
     private List<Pokemon> pokemons;
     private List<Item> items;
 
-    public Player(String name) {
+    public Player(String name, Location startLocation) {
         this.name = name;
         this.x = 0;
         this.y = 0;
-        this.currentLocation = new Location(0, 0, "Home", "You entered Home.");
+        this.currentLocation = startLocation;
         this.pokemons = new ArrayList<>();
     }
 
@@ -39,19 +40,26 @@ public class Player {
             currentLocation = map.getLocations().get(y).get(x);
             System.out.println(currentLocation.getDescription());
         } else {
-            System.out.printf("Can't leave %s!\n", this.currentLocation.getName());
+            System.out.println("You ran into a wall...");
         }
     }
 
-    public String getLocationName() {
-        return this.currentLocation.getName();
+    public Location getCurrentLocation() {
+        return this.currentLocation;
     }
 
     public void addPokemon(Pokemon pokemon) {
         this.pokemons.add(pokemon);
     }
-    public void addItem(Item item) {
-        this.items.add(item);
+    public void takeItem(ItemLocation location) {
+        Item item = location.getItem();
+        if (item == null) {
+            System.out.println("There is no item here...");
+        } else {
+            location.removeItem();
+            this.items.add(item);
+            System.out.println(item.getName() + " added to inventory!");
+        }
     }
 
 }

@@ -53,7 +53,7 @@ public class UserInput {
     }
 
     public Command command(Player player, Map<String, Command> commands) {
-        System.out.printf("%s@%s: ", player.getName(), player.getLocationName());
+        System.out.printf("%s@%s: ", player.getName(), player.getCurrentLocation().getName());
         String userInput = string("", "Please enter a valid command.");
         while (!commands.containsKey(userInput)) {
             System.out.printf("\"%s\" is not a valid command. Please try again.\n", userInput);

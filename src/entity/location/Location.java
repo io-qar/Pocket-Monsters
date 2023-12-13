@@ -21,6 +21,11 @@ public class Location {
         return this.description;
     }
 
+    public String lookAround() {
+        return this.getDescription();
+        // alternative: "Looks like there's nothing out of the ordinary here... keep exploring!"
+    }
+
     public int getX() {
         return x;
     }
