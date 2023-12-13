@@ -36,26 +36,11 @@ public class Game {
     }
 
     public void giveIntroduction() {
-        // credit: https://www.asciiart.eu/video-games/pokemon
-        /*System.out.println("                                  ,'\\\n" +
-                "    _.----.        ____         ,'  _\\   ___    ___     ____\n" +
-                "_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\n" +
-                "\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\n" +
-                " \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\n" +
-                "   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\n" +
-                "    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\n" +
-                "     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\n" +
-                "      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\n" +
-                "       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\n" +
-                "        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\n" +
-                "                                `'                            '-._|");*/
-
         String name = ui.string("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
         this.player = new Player(name);
         System.out.printf("Hi %s!\n", name);
 
-        System.out.print("To begin your adventure you will need at least one Pokémon.");
-        int choice = ui.constrainedInteger("Please choose one of the follow Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);
+        int choice = ui.constrainedInteger("To begin your adventure you will need at least one Pokémon. Please choose one of the follow Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);
 
         String pokemonName = "";
         switch (choice) {
