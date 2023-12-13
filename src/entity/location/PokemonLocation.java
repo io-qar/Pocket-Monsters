@@ -2,7 +2,7 @@ package entity.location;
 
 import entity.Pokemon;
 
-public class PokemonLocation extends Location{
+public class PokemonLocation extends Location {
     private Pokemon pokemon;
 
     public PokemonLocation(int x, int y, String location, String description, Pokemon pokemon) {

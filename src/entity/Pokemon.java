@@ -21,4 +21,8 @@ public class Pokemon {
     public void heal(int amount) {
         healthPoints += amount;
     }
+
+    public boolean hasFainted() {
+        return healthPoints == 0;
+    }
 }

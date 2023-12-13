@@ -21,8 +21,8 @@ public class Game {
         // this.commands = new ArrayList<>();
         commands = new HashMap<>();
         // add commands here!
-        addCommand(new North());
         addCommand(new Exit());
+        addCommand(new North());
         addCommand(new East());
         addCommand(new South());
         addCommand(new West());

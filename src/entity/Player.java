@@ -13,6 +13,7 @@ public class Player {
     private Location currentLocation;
 
     private List<Pokemon> pokemons;
+    private List<Item> items;
 
     public Player(String name) {
         this.name = name;
@@ -48,6 +49,9 @@ public class Player {
 
     public void addPokemon(Pokemon pokemon) {
         this.pokemons.add(pokemon);
+    }
+    public void addItem(Item item) {
+        this.items.add(item);
     }
 
 }

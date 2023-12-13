@@ -21,8 +21,8 @@ public class Map {
         ArrayList<Location> locationsArray = new ArrayList<>();
 
         Location home = new Location(0, 0, "Home", "You entered Home.");
-        Pokemon bulbasaur = new Pokemon("Bulbasaur", 20, 2);
-        Location bulbasaurLoc = new PokemonLocation(1, 0, "Home", "Encountered a wild bulbasaur!", bulbasaur);
+        Pokemon pidgey = new Pokemon("Pidgey", 10, 2);
+        Location bulbasaurLoc = new PokemonLocation(1, 0, "Home", "Encountered a wild pidgey!", pidgey);
         Location forest = new Location(0, 1, "Forest", "You entered the Forest.");
         Location road = new Location(1, 1, "Road", "You are on the Road.");
         locationsArray.add(home);
