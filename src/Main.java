@@ -14,7 +14,7 @@ public class Main {
 				switch (scanner.nextInt()) {
 				case 1:
 					System.out.println("You picked option \"Start a game\". Starting a new game...");
-					game.start(game);
+					game.start();
 					break;
 				case 2:
 					System.out.println("You picked option \"Exit the game.\". Exiting...");

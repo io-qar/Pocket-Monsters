@@ -7,12 +7,14 @@ import service.Game;
 import java.util.HashMap;
 
 public class Exit extends Command {
-    public Exit() {
+    private Game game;
+    public Exit(Game game) {
         super("exit", "Exit the current game.");
+        this.game = game;
     }
 
     @Override
-    public void execute(Player player, Map map, Game game, HashMap<String, Command> commands) {
+    public void execute() {
         game.stop();
     }
 }

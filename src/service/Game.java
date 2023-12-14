@@ -21,21 +21,21 @@ public class Game {
         // this.commands = new ArrayList<>();
         commands = new HashMap<>();
         // add commands here!
-        addCommand(new Exit());
-        addCommand(new North());
-        addCommand(new East());
-        addCommand(new South());
-        addCommand(new West());
-        addCommand(new Help());
-        addCommand(new Look());
+        addCommand(new Exit(this));
+        addCommand(new North(player, map));
+        addCommand(new East(player, map));
+        addCommand(new South(player, map));
+        addCommand(new West(player, map));
+        addCommand(new Help(commands));
+        addCommand(new Look(player));
     }
 
-    public void start(Game game) {
+    public void start() {
         giveIntroduction();
         inProgress = true;
         while (inProgress) {
             Command cmd = ui.command(this.player, this.commands);
-            if (cmd != null) cmd.execute(this.player, this.map, game, this.commands);
+            if (cmd != null) cmd.execute();
 
             // if player has 0 pokemons -> inProgress = false
             // if player chooses exit -> inProgress = false

@@ -22,5 +22,5 @@ public abstract class Command {
         return description;
     }
 
-    public abstract void execute(Player player, Map map, Game game, HashMap<String, Command> commands);
+    public abstract void execute();
 }

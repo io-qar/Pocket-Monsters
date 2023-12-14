@@ -7,12 +7,16 @@ import service.Game;
 import java.util.HashMap;
 
 public class South extends Command {
-    public South() {
+    private Player player;
+    private Map map;
+    public South(Player player, Map map) {
         super("south", "Move south.");
+        this.player = player;
+        this.map = map;
     }
 
     @Override
-    public void execute(Player player, Map map, Game game, HashMap<String, Command> commands) {
+    public void execute() {
         player.move(0, -1, map);
     }
 }

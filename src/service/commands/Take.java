@@ -12,7 +12,7 @@ public class Take extends Command {
     }
 
     @Override
-    public void execute(Player player, Map map, Game game, HashMap<String, Command> commands) {
+    public void execute() {
         // implement...
         // player.takeItem(player.getCurrentLocation());
     }

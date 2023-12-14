@@ -7,12 +7,14 @@ import service.Game;
 import java.util.HashMap;
 
 public class Look extends Command {
-    public Look() {
+    private Player player;
+    public Look(Player player) {
         super("look", "Look around in your current location.");
+        this.player = player;
     }
 
     @Override
-    public void execute(Player player, Map map, Game game, HashMap<String, Command> commands) {
+    public void execute() {
         System.out.println(player.getCurrentLocation().lookAround());
     }
 }
