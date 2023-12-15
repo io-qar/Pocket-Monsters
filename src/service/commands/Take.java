@@ -1,19 +1,33 @@
 package service.commands;
 
-import entity.Map;
+import entity.Item;
 import entity.Player;
-import service.Game;
-
-import java.util.HashMap;
+import entity.location.ItemLocation;
 
 public class Take extends Command {
-    public Take() {
-        super("take", "Pick up an item using 'take [item_name]'");
+    private Player player;
+    public Take(Player player) {
+        super("take", "Pick up an item using 'take [item_name]'", true);
+        this.player = player;
     }
 
     @Override
     public void execute() {
-        // implement...
-        // player.takeItem(player.getCurrentLocation());
+        // check if current location is an itemLocation
+        if (player.getCurrentLocation().getClass() == ItemLocation.class) {
+            // cast the location to an itemLocation
+            ItemLocation currentLoc = (ItemLocation) player.getCurrentLocation();
+            // retrieve the item in current location
+            Item item = currentLoc.getItem();
+            if (item == null) {
+                System.out.println("There is no " + argument + " here...");
+            } else {
+                currentLoc.removeItem();
+                player.addItem(item);
+                System.out.println(item.getName() + " added to inventory!");
+            }
+        } else {
+            System.out.println("There is no " + argument + " here...");
+        }
     }
 }

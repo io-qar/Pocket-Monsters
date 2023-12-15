@@ -5,7 +5,6 @@ import entity.Item;
 public class ItemLocation extends Location {
     private Item item;
 
-
     public ItemLocation(int x, int y, String name, String description, Item item) {
         super(x, y, name, description);
         this.item = item;

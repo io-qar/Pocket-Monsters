@@ -40,6 +40,11 @@ public class UserInput {
         return this.scanner.nextInt();
     }
 
+    /**
+     * @param userInformation
+     * @param errorInformation
+     * @return the first string the user provided
+     */
     public String string(String userInformation, String errorInformation) {
         if (!userInformation.isEmpty()) {
             System.out.println(userInformation);
@@ -53,14 +58,24 @@ public class UserInput {
     }
 
     public Command command(Player player, Map<String, Command> commands) {
+        Command requestedCommand;
         System.out.printf("%s@%s: ", player.getName(), player.getCurrentLocation().getName());
         String userInput = string("", "Please enter a valid command.");
         while (!commands.containsKey(userInput)) {
             System.out.printf("\"%s\" is not a valid command. Please try again.\n", userInput);
             return null;
         }
-
+        requestedCommand = commands.getOrDefault(userInput, null);
+        // check if command requires an argument (e.g. take)
+        if (requestedCommand.isRequiresArgument()) {
+            String argument = this.scanner.next();
+            if (argument.isEmpty()) {
+                System.out.println("Correct syntax is: '"+ requestedCommand.getName() + " [argument]'. Please try again.");
+            } else {
+                requestedCommand.setArgument(argument);
+            }
+        }
         // return requested command
-        return commands.getOrDefault(userInput, null);
+        return requestedCommand;
     }
 }

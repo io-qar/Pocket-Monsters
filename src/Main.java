@@ -6,11 +6,12 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		boolean flag = true;
-		Game game = new Game();
+		Game game;
 
 		do {
 			displayMenu();
 			if (scanner.hasNextInt()) {
+				game = new Game();
 				switch (scanner.nextInt()) {
 				case 1:
 					System.out.println("You picked option \"Start a game\". Starting a new game...");

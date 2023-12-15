@@ -23,7 +23,7 @@ public class Location {
 
     public String lookAround() {
         // return this.getDescription();
-        return "Looks like there's nothing out of the ordinary here... keep exploring!";
+        return "Nothing found here... keep exploring!";
     }
 
     public int getX() {

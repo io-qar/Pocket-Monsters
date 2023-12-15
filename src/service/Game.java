@@ -17,8 +17,10 @@ public class Game {
     public Game() {
         // create game
         // could ask user for size of map. could randomize locations...
-        this.map = new Map(2, 3);
-        // this.commands = new ArrayList<>();
+        map = new Map(2, 3);
+        // spawn player on (x, y) = (0, 0)
+        player = new Player(map.getLocations().get(0).get(0));
+
         commands = new HashMap<>();
         // add commands here!
         addCommand(new Exit(this));
@@ -28,6 +30,7 @@ public class Game {
         addCommand(new West(player, map));
         addCommand(new Help(commands));
         addCommand(new Look(player));
+        addCommand(new Take(player));
     }
 
     public void start() {
@@ -52,7 +55,7 @@ public class Game {
 
     public void giveIntroduction() {
         String name = ui.string("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
-        this.player = new Player(name, map.getLocations().get(0).get(0));
+        this.player.setName(name);
         System.out.printf("Hi %s!\n", name);
 
         int choice = ui.constrainedInteger("To begin your adventure you will need at least one Pokémon. Please choose one of the following Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);

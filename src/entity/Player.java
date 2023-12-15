@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private final String name;
+    private String name;
     // player's current coordinates
     private int x;
     private int y;
@@ -16,16 +16,20 @@ public class Player {
     private List<Pokemon> pokemons;
     private List<Item> items;
 
-    public Player(String name, Location startLocation) {
-        this.name = name;
+    public Player(Location startLocation) {
         this.x = 0;
         this.y = 0;
         this.currentLocation = startLocation;
         this.pokemons = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String providedName) {
+        this.name = providedName;
     }
 
     public void move(int deltaX, int deltaY, Map map) {
@@ -51,15 +55,8 @@ public class Player {
     public void addPokemon(Pokemon pokemon) {
         this.pokemons.add(pokemon);
     }
-    public void takeItem(ItemLocation location) {
-        Item item = location.getItem();
-        if (item == null) {
-            System.out.println("There is no item here...");
-        } else {
-            location.removeItem();
-            this.items.add(item);
-            System.out.println(item.getName() + " added to inventory!");
-        }
+    public void addItem(Item item) {
+        this.items.add(item);
     }
 
 }
