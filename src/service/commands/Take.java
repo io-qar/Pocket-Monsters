@@ -4,6 +4,8 @@ import entity.Item;
 import entity.Player;
 import entity.location.ItemLocation;
 
+import java.util.Objects;
+
 public class Take extends Command {
     private Player player;
     public Take(Player player) {
@@ -19,15 +21,15 @@ public class Take extends Command {
             ItemLocation currentLoc = (ItemLocation) player.getCurrentLocation();
             // retrieve the item in current location
             Item item = currentLoc.getItem();
-            if (item == null) {
-                System.out.println("There is no " + argument + " here...");
+            if (item == null || !argument.equalsIgnoreCase(item.getName())) {
+                System.out.println("There is no \"" + argument + "\" here...");
             } else {
                 currentLoc.removeItem();
                 player.addItem(item);
                 System.out.println(item.getName() + " added to inventory!");
             }
         } else {
-            System.out.println("There is no " + argument + " here...");
+            System.out.println("There is no \"" + argument + "\" here...");
         }
     }
 }

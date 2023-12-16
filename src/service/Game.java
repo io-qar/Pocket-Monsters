@@ -38,7 +38,7 @@ public class Game {
         inProgress = true;
         while (inProgress) {
             Command cmd = ui.command(this.player, this.commands);
-            if (cmd != null) cmd.execute();
+            cmd.execute();
 
             // if player has 0 pokemons -> inProgress = false
             // if player chooses exit -> inProgress = false
@@ -54,11 +54,11 @@ public class Game {
     }
 
     public void giveIntroduction() {
-        String name = ui.string("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
+        String name = ui.readLine("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
         this.player.setName(name);
         System.out.printf("Hi %s!\n", name);
 
-        int choice = ui.constrainedInteger("To begin your adventure you will need at least one Pokémon. Please choose one of the following Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);
+        int choice = ui.readConstrainedInteger("To begin your adventure you will need at least one Pokémon. Please choose one of the following Pokémon:\n1) Bulbasaur\n2) Charmander\n3) Squirtle", "Please enter a number between 1 and 3.", 1, 3);
 
         String pokemonName = "";
         switch (choice) {
