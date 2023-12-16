@@ -85,11 +85,11 @@ public class UserInput {
         System.out.printf("%s@%s: ", player.getName(), player.getCurrentLocation().getName());
         String userInput = readLine("", "Please enter a valid command.");
         String[] words = userInput.split(" ");
-        if (!commands.containsKey(words[0])) {
+        if (!commands.containsKey(words[0].toLowerCase())) {
             System.out.printf("\"%s\" is not a valid command. Please try again.\n", words[0]);
             return command(player, commands);
         }
-        Command requestedCommand = commands.get(words[0]);
+        Command requestedCommand = commands.get(words[0].toLowerCase());
 
         // check if command requires an argument (e.g. take)
         if (requestedCommand.isRequiresArgument()) {
