@@ -49,7 +49,7 @@ public class Game {
         inProgress = false;
     }
 
-    public void addCommand(Command command) {
+    private void addCommand(Command command) {
         this.commands.put(command.getName(), command);
     }
 

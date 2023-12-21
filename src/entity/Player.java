@@ -55,8 +55,12 @@ public class Player {
     public void addPokemon(Pokemon pokemon) {
         this.pokemons.add(pokemon);
     }
+
     public void addItem(Item item) {
         this.items.add(item);
     }
 
+    public List<Pokemon> getPokemons() {
+        return pokemons;
+    }
 }

@@ -13,7 +13,6 @@ public class UserInput {
         this.scanner = new Scanner(System.in);
     }
 
-    // examples of how to use this class
     public static void main(String[] args) {
         UserInput ui = new UserInput();
         int restrictedAge = ui.readConstrainedInteger("Please provide age (80 - 90):", "Please provide int between 80 and 90", 80, 90);
@@ -99,7 +98,6 @@ public class UserInput {
             } else {
                 String argument = words[1];
                 requestedCommand.setArgument(argument);
-                // return requested command
                 return requestedCommand;
             }
         }
