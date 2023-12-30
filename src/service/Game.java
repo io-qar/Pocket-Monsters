@@ -1,7 +1,6 @@
 package service;
 
 import entity.Player;
-import entity.Map;
 import entity.Pokemon;
 import service.commands.*;
 
@@ -10,24 +9,19 @@ import java.util.HashMap;
 public class Game {
     private boolean inProgress = false;
     private UserInput ui = new UserInput();
-    private Map map;
     private Player player;
     HashMap<String, Command> commands;
 
     public Game() {
-        // create game
         // could ask user for size of map. could randomize locations...
-        map = new Map(2, 3);
-        // spawn player on (x, y) = (0, 0)
-        player = new Player(map.getLocations().get(0).get(0));
-
+        player = new Player(0, 0);
         commands = new HashMap<>();
-        // add commands here!
+
         addCommand(new Exit(this));
-        addCommand(new North(player, map));
-        addCommand(new East(player, map));
-        addCommand(new South(player, map));
-        addCommand(new West(player, map));
+        addCommand(new North(player));
+        addCommand(new East(player));
+        addCommand(new South(player));
+        addCommand(new West(player));
         addCommand(new Help(commands));
         addCommand(new Look(player));
         addCommand(new Take(player));
@@ -39,9 +33,6 @@ public class Game {
         while (inProgress) {
             Command cmd = ui.command(this.player, this.commands);
             cmd.execute();
-
-            // if player has 0 pokemons -> inProgress = false
-            // if player chooses exit -> inProgress = false
         }
     }
 
@@ -54,7 +45,7 @@ public class Game {
     }
 
     public void giveIntroduction() {
-        String name = ui.readLine("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
+        String name = ui.readWord("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
         this.player.setName(name);
         System.out.printf("Hi %s!\n", name);
 

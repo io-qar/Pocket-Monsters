@@ -1,11 +1,18 @@
 package service.commands;
 
+import entity.Player;
+
 public class Switch extends Command {
+    private Player player;
 
-  @Override
-  public void execute() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'execute'");
-  }
+    public Switch(Player player) {
+        super("switch", "switch your current pokemon with another one", false);
+        this.player = player;
+    }
 
+    @Override
+    public void execute() {
+        player.changeCurrentPokemon();
+        return;
+    }
 }

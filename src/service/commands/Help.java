@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class Help extends Command {
     private HashMap<String, Command> commands;
+    
     public Help(HashMap<String, Command> commands) {
         super("help", "Display a list of all possible commands.", false);
         this.commands = commands;
@@ -15,4 +16,3 @@ public class Help extends Command {
         commands.forEach((cmdName, cmd) -> System.out.println("- " + cmdName + ": " + cmd.getDescription()));
     }
 }
-

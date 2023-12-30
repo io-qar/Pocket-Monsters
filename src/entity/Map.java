@@ -37,13 +37,13 @@ public class Map {
 
         HealthPotion potion2 = new HealthPotion(10);
         Location caverns = new ItemLocation(2, 1, "CrystalCaverns", "Deep within the Crystal Caverns, refracted light dances off the walls, illuminating the labyrinthine paths and revealing dazzling formations that seem to hold untold stories.", potion);
+
         locationsArray.add(PalletTown);
         locationsArray.add(route3);
         locationsArray.add(cave);
         locationsArray.add(forest);
         locationsArray.add(garden);
         locationsArray.add(caverns);
-
 
         // convert 1D array of locations to 2D array
         for (int row = 0; row < height; row++) {
@@ -65,5 +65,9 @@ public class Map {
 
     public List<List<Location>> getLocations() {
         return locations;
+    }
+
+    public Location getLocation(int y, int x) {
+        return locations.get(y).get(x);
     }
 }

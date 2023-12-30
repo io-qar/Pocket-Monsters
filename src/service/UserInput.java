@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import entity.Player;
-import service.commands.*;
+import service.commands.Command;
 
 public class UserInput {
     private Scanner scanner;
@@ -13,25 +13,17 @@ public class UserInput {
         this.scanner = new Scanner(System.in);
     }
 
-    public static void main(String[] args) {
-        UserInput ui = new UserInput();
-        int restrictedAge = ui.readConstrainedInteger("Please provide age (80 - 90):", "Please provide int between 80 and 90", 80, 90);
-        System.out.println("Your age is: " + restrictedAge);
-        int myAge = ui.readInteger("Please provide your age: ", "Please provide an int");
-        System.out.println("your age is " + myAge);
-    }
-
     public int readConstrainedInteger(String userInformation, String errorInformation, int min, int max) {
-        int constrainedIntegerInput = readInteger(userInformation, errorInformation);
-        while((constrainedIntegerInput < min) || (constrainedIntegerInput > max)) {
+        int constrainedIntegerInput = -1;
+        do {
             constrainedIntegerInput = readInteger(userInformation, errorInformation);
-        }
+        } while ((constrainedIntegerInput < min) || (constrainedIntegerInput > max));
         return constrainedIntegerInput;
     }
 
     public int readInteger(String userInformation, String errorInformation) {
         System.out.println(userInformation);
-        while(!scanner.hasNextInt()) {
+        while (!scanner.hasNextInt()) {
             System.out.println(errorInformation);
             // skip entire line
             this.scanner.nextLine();
@@ -51,7 +43,7 @@ public class UserInput {
         if (!userInformation.isEmpty()) {
             System.out.println(userInformation);
         }
-        while(!scanner.hasNext()) {
+        while (!scanner.hasNext()) {
             System.out.println(errorInformation);
             // skip entire line
             this.scanner.nextLine();
@@ -72,7 +64,7 @@ public class UserInput {
         if (!userInformation.isEmpty()) {
             System.out.println(userInformation);
         }
-        while(!scanner.hasNext()) {
+        while (!scanner.hasNext()) {
             System.out.println(errorInformation);
             // skip entire line
             this.scanner.nextLine();

@@ -4,8 +4,6 @@ import entity.Item;
 import entity.Player;
 import entity.location.ItemLocation;
 
-import java.util.Objects;
-
 public class Take extends Command {
     private Player player;
     public Take(Player player) {
