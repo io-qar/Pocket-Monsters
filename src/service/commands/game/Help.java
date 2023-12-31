@@ -1,4 +1,6 @@
-package service.commands;
+package service.commands.game;
+
+import service.commands.Command;
 
 import java.util.HashMap;
 

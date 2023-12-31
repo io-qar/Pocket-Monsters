@@ -1,6 +1,7 @@
-package service.commands;
+package service.commands.game;
 
 import entity.Player;
+import service.commands.Command;
 
 
 public class Look extends Command {

@@ -1,10 +1,9 @@
-package service.commands;
+package service.commands.game;
 
-import entity.Item;
+import entity.item.Item;
 import entity.Player;
 import entity.location.ItemLocation;
-
-import java.util.Objects;
+import service.commands.Command;
 
 public class Take extends Command {
     private Player player;
@@ -26,7 +25,6 @@ public class Take extends Command {
             } else {
                 currentLoc.removeItem();
                 player.addItem(item);
-                System.out.println(item.getName() + " added to inventory!");
             }
         } else {
             System.out.println("There is no \"" + argument + "\" here...");

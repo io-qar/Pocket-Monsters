@@ -1,9 +1,10 @@
 package entity;
 
-import entity.location.ItemLocation;
+import entity.item.Item;
 import entity.location.Location;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Player {
@@ -14,14 +15,14 @@ public class Player {
     private Location currentLocation;
 
     private List<Pokemon> pokemons;
-    private List<Item> items;
+    private List<Item> inventory;
 
     public Player(Location startLocation) {
         this.x = 0;
         this.y = 0;
         this.currentLocation = startLocation;
         this.pokemons = new ArrayList<>();
-        this.items = new ArrayList<>();
+        this.inventory = new ArrayList<>();
     }
 
     public String getName() {
@@ -52,14 +53,72 @@ public class Player {
         return this.currentLocation;
     }
 
+    /******* Item related methods **********/
+
+    public void addItem(Item item) {
+        this.inventory.add(item);
+        System.out.println(item.getName() + " added to inventory!");
+    }
+
+    public void displayInventory() {
+        if (inventory.isEmpty()) {
+            System.out.println("Your inventory is empty.");
+        }
+        for (int i = 0; i < inventory.size(); i++) {
+            System.out.println(i + 1 + ") " + inventory.get(i));
+        }
+    }
+
+    /******* Pokemon related methods **********/
     public void addPokemon(Pokemon pokemon) {
         this.pokemons.add(pokemon);
-    }
-    public void addItem(Item item) {
-        this.items.add(item);
+        System.out.println(pokemon.getName() + " was added to your Pokémon!");
     }
 
     public List<Pokemon> getPokemons() {
         return pokemons;
+    }
+
+    public Pokemon getActivePokemon() {
+        // first Pokémon is active Pokémon. Another option would be to keep a seperate instance variable 'activePokemon' which points to the current active Pokémon in pokemons.
+        return pokemons.get(0);
+    }
+
+    /**
+     * @param newIndex index of new active Pokémon
+     * @return true if successful, false otherwise
+     */
+    public boolean switchActivePokemon(int newIndex) {
+        int trueIndex = newIndex - 1; // let index start from 0
+        if (trueIndex < 0 || trueIndex > pokemons.size() - 1) {
+            System.out.println("Index out of range");
+            return false;
+        }
+        if (pokemons.get(trueIndex).hasFainted()) {
+            System.out.println("Cannot switch to a fainted Pokémon!");
+            return false;
+        }
+        Collections.swap(pokemons, 0, trueIndex);
+        System.out.println("Switched to " + getActivePokemon().getName() + "!");
+        return true;
+    }
+
+    public void displayPokemons() {
+        for (int i = 0; i < pokemons.size(); i++) {
+            if (i == 0) {
+                System.out.println(i + 1 + ") " + pokemons.get(i) + " <-- active");
+            } else {
+                System.out.println(i + 1 + ") " + pokemons.get(i));
+            }
+        }
+    }
+
+    public boolean hasPokemonsAlive() {
+        for (Pokemon p : pokemons) {
+            if (!p.hasFainted()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -4,6 +4,7 @@ import entity.Player;
 import entity.Map;
 import entity.Pokemon;
 import service.commands.*;
+import service.commands.game.*;
 
 import java.util.HashMap;
 
@@ -30,6 +31,10 @@ public class Game {
         addCommand(new Help(commands));
         addCommand(new Look(player));
         addCommand(new Take(player));
+        addCommand(new Fight(this, player));
+        addCommand(new Switch(player));
+        addCommand(new Inventory(player));
+        addCommand(new Pokemons(player));
     }
 
     public void start() {
@@ -38,13 +43,11 @@ public class Game {
         while (inProgress) {
             Command cmd = ui.command(this.player, this.commands);
             cmd.execute();
-
-            // if player has 0 pokemons -> inProgress = false
-            // if player chooses exit -> inProgress = false
         }
     }
 
     public void stop() {
+        System.out.println("GAME OVER");
         inProgress = false;
     }
 
@@ -72,8 +75,7 @@ public class Game {
                 break;
         }
 
-        System.out.printf("You picked %s.\n", pokemonName);
-        Pokemon starterPokemon = new Pokemon(pokemonName, 20, 2);
+        Pokemon starterPokemon = new Pokemon(pokemonName, 12, 2);
         this.player.addPokemon(starterPokemon);
 
         System.out.println("Great choice! Now go out there and explore the world! \nIf at any point you are unsure what to do, simply call the \"help\" command.");

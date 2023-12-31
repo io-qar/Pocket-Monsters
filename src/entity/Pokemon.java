@@ -18,11 +18,27 @@ public class Pokemon {
         return attack;
     }
 
+    public int getHealthPoints() {
+        return healthPoints;
+    }
+
+    public void isAttacked(int damage) {
+        if (healthPoints <= damage) {
+            healthPoints = 0;
+        } else {
+            healthPoints -= damage;
+        }
+    }
+
     public void heal(int amount) {
         healthPoints += amount;
     }
 
     public boolean hasFainted() {
         return healthPoints == 0;
+    }
+
+    public String toString() {
+        return getName() + " (" + getHealthPoints() + " hp)";
     }
 }

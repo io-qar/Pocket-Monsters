@@ -1,6 +1,6 @@
 package entity.location;
 
-import entity.Item;
+import entity.item.Item;
 
 public class ItemLocation extends Location {
     private Item item;

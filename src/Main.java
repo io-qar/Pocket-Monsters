@@ -36,7 +36,7 @@ public class Main {
 		System.out.println("Exited");
 	}
 
-	public static void displayMenu() {
+	private static void displayMenu() {
 		System.out.println("1) Start a game!\n2) Exit the game.\n");
 	}
 }

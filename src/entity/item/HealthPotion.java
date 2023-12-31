@@ -1,4 +1,6 @@
-package entity;
+package entity.item;
+
+import entity.item.Item;
 
 public class HealthPotion extends Item {
     private int healthPoints;

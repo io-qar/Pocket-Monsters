@@ -1,6 +1,7 @@
-package service.commands;
+package service.commands.game;
 
 import service.Game;
+import service.commands.Command;
 
 public class Exit extends Command {
     private Game game;

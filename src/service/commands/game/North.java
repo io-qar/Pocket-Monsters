@@ -1,7 +1,8 @@
-package service.commands;
+package service.commands.game;
 
 import entity.Map;
 import entity.Player;
+import service.commands.Command;
 
 public class North extends Command {
     private Player player;

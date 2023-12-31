@@ -1,4 +1,4 @@
-package entity;
+package entity.item;
 
 public abstract class Item {
     private String name;

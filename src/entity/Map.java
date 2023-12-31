@@ -1,5 +1,6 @@
 package entity;
 
+import entity.item.HealthPotion;
 import entity.location.ItemLocation;
 import entity.location.PokemonLocation;
 import java.util.ArrayList;
