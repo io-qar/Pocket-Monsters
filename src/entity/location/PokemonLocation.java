@@ -22,4 +22,8 @@ public class PokemonLocation extends Location {
     public void removePokemon() {
        pokemon = null;
     }
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
 }

@@ -63,7 +63,7 @@ public class Map {
         return width;
     }
 
-    public List<List<Location>> getLocations() {
-        return locations;
+    public Location getLocation(int y, int x) {
+        return locations.get(y).get(x);
     }
 }

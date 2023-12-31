@@ -16,10 +16,9 @@ public class Game {
 
     public Game() {
         // create game
-        // could ask user for size of map. could randomize locations...
         map = new Map(2, 3);
         // spawn player on (x, y) = (0, 0)
-        player = new Player(map.getLocations().get(0).get(0));
+        player = new Player(map.getLocation(0, 0));
 
         commands = new HashMap<>();
         // add commands here!
@@ -49,11 +48,11 @@ public class Game {
         inProgress = false;
     }
 
-    public void addCommand(Command command) {
+    private void addCommand(Command command) {
         this.commands.put(command.getName(), command);
     }
 
-    public void giveIntroduction() {
+    private void giveIntroduction() {
         String name = ui.readLine("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
         this.player.setName(name);
         System.out.printf("Hi %s!\n", name);

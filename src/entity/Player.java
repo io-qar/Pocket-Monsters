@@ -41,7 +41,7 @@ public class Player {
             // update location and show its description
             x = newX;
             y = newY;
-            currentLocation = map.getLocations().get(y).get(x);
+            currentLocation = map.getLocation(y, x);
             System.out.println(currentLocation.getDescription());
         } else {
             System.out.println("You ran into a wall...");
@@ -59,4 +59,7 @@ public class Player {
         this.items.add(item);
     }
 
+    public List<Pokemon> getPokemons() {
+        return pokemons;
+    }
 }
