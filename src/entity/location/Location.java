@@ -1,14 +1,14 @@
 package entity.location;
 
 public class Location {
-    private int x;
     private int y;
+    private int x;
     private String name;
     private String description;
 
-    public Location(int x, int y, String name, String description) {
-        this.x = x;
+    public Location(int y, int x, String name, String description) {
         this.y = y;
+        this.x = x;
         this.name = name;
         this.description = description;
     }
@@ -24,13 +24,5 @@ public class Location {
     public String lookAround() {
         // return this.getDescription();
         return "Nothing found here... keep exploring!";
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 }
