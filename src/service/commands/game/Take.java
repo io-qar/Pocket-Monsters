@@ -1,14 +1,14 @@
 package service.commands.game;
 
-import entity.item.Item;
 import entity.Player;
+import entity.item.Item;
 import entity.location.ItemLocation;
 import service.commands.Command;
 
 public class Take extends Command {
     private Player player;
     public Take(Player player) {
-        super("take", "Pick up an item using 'take [item_name]'", true);
+        super("take", "Pick up an item using 'take [item name]'", true);
         this.player = player;
     }
 

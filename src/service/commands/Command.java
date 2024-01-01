@@ -16,6 +16,12 @@ public abstract class Command {
      */
     protected String argument;
 
+    /**
+     * For some commands (e.g. use), it's useful to know whether the command actually did something after execution or not
+     * (e.g. an item was actually used).
+     */
+    protected boolean executedSuccessfully; // false by default
+
     public Command(String name, String description, boolean requiresArgument) {
         this.name = name;
         this.description = description;
@@ -28,6 +34,11 @@ public abstract class Command {
     public String getDescription() {
         return description;
     }
+
+    public boolean isExecutedSuccessfully() {
+        return executedSuccessfully;
+    }
+
     public boolean isRequiresArgument() {
         return requiresArgument;
     }

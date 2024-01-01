@@ -60,6 +60,11 @@ public class Player {
         System.out.println(item.getName() + " added to inventory!");
     }
 
+    public void removeItem(Item item, boolean displayMessages) {
+        this.inventory.remove(item);
+        if (displayMessages) System.out.println("Dropped " + item.getName() + " from inventory.");
+    }
+
     public void displayInventory() {
         if (inventory.isEmpty()) {
             System.out.println("Your inventory is empty.");
@@ -67,6 +72,10 @@ public class Player {
         for (int i = 0; i < inventory.size(); i++) {
             System.out.println(i + 1 + ") " + inventory.get(i));
         }
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
     }
 
     /******* Pokemon related methods **********/
@@ -86,21 +95,20 @@ public class Player {
 
     /**
      * @param newIndex index of new active Pokémon
-     * @return true if successful, false otherwise
+     * @return new active Pokemon, null if failed.
      */
-    public boolean switchActivePokemon(int newIndex) {
-        int trueIndex = newIndex - 1; // let index start from 0
-        if (trueIndex < 0 || trueIndex > pokemons.size() - 1) {
+    public Pokemon switchActivePokemon(int newIndex) {
+        if (newIndex < 0 || newIndex > pokemons.size() - 1) {
             System.out.println("Index out of range");
-            return false;
+            return null;
         }
-        if (pokemons.get(trueIndex).hasFainted()) {
+        if (pokemons.get(newIndex).hasFainted()) {
             System.out.println("Cannot switch to a fainted Pokémon!");
-            return false;
+            return null;
         }
-        Collections.swap(pokemons, 0, trueIndex);
+        Collections.swap(pokemons, 0, newIndex);
         System.out.println("Switched to " + getActivePokemon().getName() + "!");
-        return true;
+        return getActivePokemon();
     }
 
     public void displayPokemons() {

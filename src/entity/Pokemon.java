@@ -2,16 +2,22 @@ package entity;
 
 public class Pokemon {
     private String name; // name of the pokémon
-    private int healthPoints; // amount of health points
+    private final int maxHealth; // max health of the pokémon
+    private int healthPoints; // current amount of health points
     private int attack; // amount of damage done in an attack
 
     public Pokemon(String name, int healthPoints, int attack) {
         this.name = name;
+        this.maxHealth = healthPoints;
         this.healthPoints = healthPoints;
         this.attack = attack;
     }
     public String getName() {
         return name;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     public int getAttack() {
@@ -20,6 +26,10 @@ public class Pokemon {
 
     public int getHealthPoints() {
         return healthPoints;
+    }
+
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
     }
 
     public void isAttacked(int damage) {
@@ -31,7 +41,14 @@ public class Pokemon {
     }
 
     public void heal(int amount) {
-        healthPoints += amount;
+        int newHealth = healthPoints + amount;
+        if (newHealth >= maxHealth) {
+            healthPoints = maxHealth;
+            System.out.println(name + " was restored to full HP!");
+        } else {
+            healthPoints += amount;
+            System.out.println(name + " gained " + amount + " HP!");
+        }
     }
 
     public boolean hasFainted() {
@@ -39,6 +56,6 @@ public class Pokemon {
     }
 
     public String toString() {
-        return getName() + " (" + getHealthPoints() + " hp)";
+        return getName() + " (" + healthPoints + "/" + maxHealth + " hp)";
     }
 }

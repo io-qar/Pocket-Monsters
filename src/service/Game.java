@@ -1,9 +1,11 @@
 package service;
 
-import entity.Player;
 import entity.Map;
+import entity.Player;
 import entity.Pokemon;
-import service.commands.*;
+import entity.item.HealthPotion;
+import entity.item.PokeBall;
+import service.commands.Command;
 import service.commands.game.*;
 
 import java.util.HashMap;
@@ -17,7 +19,7 @@ public class Game {
 
     public Game() {
         // create game
-        map = new Map(2, 3);
+        map = new Map(3, 3);
         // spawn player on (x, y) = (0, 0)
         player = new Player(map.getLocation(0, 0));
 
@@ -28,13 +30,15 @@ public class Game {
         addCommand(new East(player, map));
         addCommand(new South(player, map));
         addCommand(new West(player, map));
-        addCommand(new Help(commands));
+        addCommand(new Help(commands, false));
         addCommand(new Look(player));
         addCommand(new Take(player));
         addCommand(new Fight(this, player));
         addCommand(new Switch(player));
         addCommand(new Inventory(player));
         addCommand(new Pokemons(player));
+        addCommand(new Use(player));
+        addCommand(new Drop(player));
     }
 
     public void start() {
@@ -77,7 +81,11 @@ public class Game {
 
         Pokemon starterPokemon = new Pokemon(pokemonName, 12, 2);
         this.player.addPokemon(starterPokemon);
-
         System.out.println("Great choice! Now go out there and explore the world! \nIf at any point you are unsure what to do, simply call the \"help\" command.");
+
+        // add some pokemon/items manually for testing purposes
+//        this.player.addPokemon(new Pokemon("testPokemon", 5, 2));
+//        this.player.addItem(new HealthPotion("potion", 2));
+//        this.player.addItem(new PokeBall("masterball", 1));
     }
 }

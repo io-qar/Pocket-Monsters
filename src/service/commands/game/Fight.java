@@ -17,7 +17,7 @@ public class Fight extends Command {
         // attack
         // use pokeball/potion
         // switch <name of pokemon>
-        super("fight", "Fight a Pokémon using 'fight [Pokémon_name]'", true);
+        super("fight", "Fight a Pokémon using 'fight [pokémon name]'", true);
         this.player = player;
         this.game = game;
     }

@@ -7,7 +7,7 @@ public class Inventory extends Command {
     private Player player;
 
     public Inventory(Player player) {
-        super("inventory", "Display your pokemon.", false);
+        super("inventory", "Display your inventory.", false);
         this.player = player;
     }
 

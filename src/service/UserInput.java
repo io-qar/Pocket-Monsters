@@ -1,10 +1,10 @@
 package service;
 
+import entity.Player;
+import service.commands.Command;
+
 import java.util.Map;
 import java.util.Scanner;
-
-import entity.Player;
-import service.commands.*;
 
 public class UserInput {
     private Scanner scanner;
@@ -75,7 +75,7 @@ public class UserInput {
     public Command command(Player player, Map<String, Command> commands) {
         System.out.printf("%s@%s: ", player.getName(), player.getCurrentLocation().getName());
         String userInput = readLine("", "Please enter a valid command.");
-        String[] words = userInput.split(" ");
+        String[] words = userInput.split(" ", 2);
         if (!commands.containsKey(words[0].toLowerCase())) {
             System.out.printf("\"%s\" is not a valid command. Please try again.\n", words[0]);
             return command(player, commands);

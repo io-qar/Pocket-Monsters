@@ -11,5 +11,7 @@ public abstract class Item {
         return name;
     }
 
-    public abstract void use(String[] args);
+    public String toString() {
+        return name;
+    }
 }
