@@ -19,7 +19,7 @@ public class Main {
 					break;
 				case 2:
 					System.out.println("You picked option \"Exit the game.\". Exiting...");
-					game.stop();
+					game.stop(false);
 					flag = false;
 					break;
 				default:

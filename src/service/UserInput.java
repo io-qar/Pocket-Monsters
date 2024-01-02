@@ -85,7 +85,7 @@ public class UserInput {
         // check if command requires an argument (e.g. take)
         if (requestedCommand.isRequiresArgument()) {
             if (words.length <= 1) {
-                System.out.println("Correct syntax is: \""+ requestedCommand.getName() + " [argument]\". Please try again.");
+                System.out.println("Correct syntax is: \""+ requestedCommand.getName() + " [name]\". Please try again.");
                 return command(player, commands);
             } else {
                 String argument = words[1];

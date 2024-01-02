@@ -5,8 +5,8 @@ import entity.Pokemon;
 public class PokemonLocation extends Location {
     private Pokemon pokemon;
 
-    public PokemonLocation(int y, int x, String name, String description, Pokemon pokemon) {
-        super(y, x, name, description);
+    public PokemonLocation(String name, String description, Pokemon pokemon) {
+        super(name, description);
         this.pokemon = pokemon;
     }
 

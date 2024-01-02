@@ -3,8 +3,6 @@ package service;
 import entity.Map;
 import entity.Player;
 import entity.Pokemon;
-import entity.item.HealthPotion;
-import entity.item.PokeBall;
 import service.commands.Command;
 import service.commands.game.*;
 
@@ -31,7 +29,7 @@ public class Game {
         addCommand(new South(player, map));
         addCommand(new West(player, map));
         addCommand(new Help(commands, false));
-        addCommand(new Look(player));
+        addCommand(new Look(player, this));
         addCommand(new Take(player));
         addCommand(new Fight(this, player));
         addCommand(new Switch(player));
@@ -50,8 +48,12 @@ public class Game {
         }
     }
 
-    public void stop() {
-        System.out.println("GAME OVER");
+    public void stop(boolean won) {
+        if (won) {
+            System.out.println("--------------- CONGRATS, YOU WON! ---------------");
+        } else {
+            System.out.println("--------------- GAME OVER ---------------");
+        }
         inProgress = false;
     }
 

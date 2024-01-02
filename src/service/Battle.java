@@ -15,11 +15,9 @@ public class Battle {
     private Player player;
     private Pokemon ownPokemon; // your active Pokémon
     private Pokemon enemyPokemon; // the Pokémon you are fighting against
-    boolean usedItem = false; // checks whether Player used an item
-
     private boolean inProgress = false;
 
-    public Battle(Player player, Pokemon enemy) {
+    public Battle(Player player, Pokemon enemy, boolean isGymBattle) {
         this.player = player;
         this.ownPokemon = player.getActivePokemon();
         this.enemyPokemon = enemy;
@@ -28,11 +26,11 @@ public class Battle {
         // add battle commands here!
         addCommand(new Attack(this, true));
         addCommand(new Switch(player, this));
-        addCommand(new Run(this));
+        addCommand(new Run(this, isGymBattle)); // could also not add run cmd based on isGymBattle
         addCommand(new Help(commands, true));
         addCommand(new Pokemons(player));
         addCommand(new Inventory(player));
-        addCommand(new Use(player, enemyPokemon, this));
+        addCommand(new Use(player, enemyPokemon, this, isGymBattle));
     }
 
     public Pokemon getOwnPokemon() {
@@ -72,8 +70,7 @@ public class Battle {
         System.out.println("What is your next move? (Type \"help\" for a list of commands)");
         Command cmd = ui.command(this.player, this.commands);
         cmd.execute();
-        if (cmd.getName() == "switch" || cmd.getName() == "help" || cmd.getName() == "inventory" ||
-                cmd.getName() == "pokemons" || (cmd.getName() == "use" && !cmd.isExecutedSuccessfully())) {
+        if (cmd.getName() == "switch" || cmd.getName() == "help" || cmd.getName() == "inventory" || cmd.getName() == "pokemons" || (cmd.getName() == "use" && !cmd.isExecutedSuccessfully()) || (cmd.getName() == "run" && !cmd.isExecutedSuccessfully())) {
             // after above commands, the user can do another move
             ownMove();
         }

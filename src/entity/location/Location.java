@@ -1,14 +1,10 @@
 package entity.location;
 
 public class Location {
-    private int y;
-    private int x;
     private String name;
     private String description;
 
-    public Location(int y, int x, String name, String description) {
-        this.y = y;
-        this.x = x;
+    public Location(String name, String description) {
         this.name = name;
         this.description = description;
     }

@@ -12,6 +12,6 @@ public class Exit extends Command {
 
     @Override
     public void execute() {
-        game.stop();
+        game.stop(false);
     }
 }

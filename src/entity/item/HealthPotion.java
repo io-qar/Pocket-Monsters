@@ -54,4 +54,8 @@ public class HealthPotion extends Item {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return name + " (" + healthPoints + " hp)";
+    }
 }

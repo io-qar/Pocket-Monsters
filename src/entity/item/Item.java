@@ -1,7 +1,7 @@
 package entity.item;
 
 public abstract class Item {
-    private String name;
+    protected String name;
 
     public Item(String name) {
         this.name = name;

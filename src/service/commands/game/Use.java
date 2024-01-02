@@ -14,6 +14,7 @@ public class Use extends Command {
     private Player player;
     private Pokemon enemyPokemon = null; // if null, we are not in battle context
     private Battle battle = null; // if null, we are not in battle context
+    private boolean isGymBattle; // if false, it's a normal pokemon battle. If true, it's a gym battle
 
     /**
      * In general game context
@@ -28,11 +29,12 @@ public class Use extends Command {
     /**
      * In battle context (includes pokeballs)
      */
-    public Use(Player player, Pokemon enemyPokemon, Battle battle) {
-        super("use", "Use an item using 'use [item_name]'", true);
+    public Use(Player player, Pokemon enemyPokemon, Battle battle, boolean isGymBattle) {
+        super("use", "Use an item using 'use [item name]'", true);
         this.player = player;
         this.enemyPokemon = enemyPokemon;
         this.battle = battle;
+        this.isGymBattle = isGymBattle;
     }
 
     @Override
@@ -48,6 +50,8 @@ public class Use extends Command {
                     if (item.getClass() == PokeBall.class && enemyPokemon == null) {
                         // trying to use pokeball outside of battle context
                         System.out.println("You can only use Pokéballs in battle!");
+                    } else if (item.getClass() == PokeBall.class && isGymBattle) {
+                        System.out.println("You can't use Pokéballs in a gym battle!");
                     } else if (item.getClass() == PokeBall.class) {
                         // using pokeball in battle
                         ((PokeBall) item).use(player, enemyPokemon, battle);

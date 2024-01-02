@@ -2,7 +2,6 @@ package service.commands.game;
 
 import entity.Player;
 import entity.item.Item;
-import entity.location.ItemLocation;
 import service.commands.Command;
 
 import java.util.List;
