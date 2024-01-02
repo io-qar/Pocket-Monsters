@@ -1,22 +1,21 @@
-# Pokemon game
+# Pocket Monsters
 
 ### Instructions on how to play:
-1. Run main;
-2. Follow instructions in the introduction;
-4. Enjoy and explore the game! Your ultimate goal is to defeat the Gym Trainer! Of course, you have to find him first...
-After wining, a new game (not plus one) starts.
+1. Run main.
+2. Follow the instructions in the introduction.
+3. Enjoy and explore the game! Use the commands below to play.
+4. Your ultimate goal is to defeat the Gym Trainer! Of course, you have to find him first...
 
-- `north`, `east`, `south`, `west commands to move;
+
+### List of in-game commands:
+- `north`, `east`, `south`, `west` commands to move;
 - `exit` command to exit the game;
 - `help` to get a list of commands;
 - `look` to look around in the current location;
-- `take [item_name]` to pick up an item;
-- `fight` to fight with enemy;
-- `switch` to change the current pokemon;
-- `inventory` to look through the inventory;
+- `inventory` to look through your inventory;
 - `pokemons` to show your pokemons;
-- `use` to use an `item`;
+- `take [item name]` to pick up an item;
+- `use [item name]` to use an `item`;
 - `drop` to drop an `item`;
-
-### UML v1:
-![UML_v1](https://github.com/io-qar/Java-Game/blob/develop/public/UMLv1.png?raw=true)
+- `fight [opponent name]` to fight an enemy;
+- `switch` to change your currently active pokemon;
