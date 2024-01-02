@@ -4,17 +4,29 @@ import entity.Player;
 import entity.Pokemon;
 import service.commands.Command;
 import service.commands.battle.Attack;
+import service.commands.battle.Cheat;
 import service.commands.battle.Run;
 import service.commands.game.*;
 
 import java.util.HashMap;
 
 public class Battle {
+    /**
+     * Represents commands which are used during the battle
+     */
     HashMap<String, Command> commands;
     private UserInput ui = new UserInput();
     private Player player;
-    private Pokemon ownPokemon; // your active Pokémon
-    private Pokemon enemyPokemon; // the Pokémon you are fighting against
+
+    /**
+     * Represents the current Player's Pokémon
+     */
+    private Pokemon ownPokemon;
+
+    /**
+     * the Pokémon you are fighting against
+     */
+    private Pokemon enemyPokemon;
     private boolean inProgress = false;
 
     public Battle(Player player, Pokemon enemy, boolean isGymBattle) {
@@ -31,6 +43,7 @@ public class Battle {
         addCommand(new Pokemons(player));
         addCommand(new Inventory(player));
         addCommand(new Use(player, enemyPokemon, this, isGymBattle));
+        addCommand(new Cheat(this, isGymBattle));
     }
 
     public Pokemon getOwnPokemon() {
@@ -62,10 +75,14 @@ public class Battle {
         System.out.println("Battle ended.");
         inProgress = false;
     }
+
     private void addCommand(Command command) {
         this.commands.put(command.getName(), command);
     }
 
+    /**
+     * Represents the Player's move during the battle
+     */
     private void ownMove() {
         System.out.println("What is your next move? (Type \"help\" for a list of commands)");
         Command cmd = ui.command(this.player, this.commands);
@@ -77,6 +94,9 @@ public class Battle {
         checkBattleStatus();
     }
 
+    /**
+     * Represents the enemy's move during the battle
+     */
     private void enemyMove() {
         Attack enemyAttack = new Attack(this, false);
         enemyAttack.execute();

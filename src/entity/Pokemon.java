@@ -1,10 +1,28 @@
 package entity;
 
+/**
+ * Represents a Pokemon entity
+ */
 public class Pokemon {
-    private String name; // name of the pokémon
-    private final int maxHealth; // max health of the pokémon
-    private int healthPoints; // current amount of health points
-    private int attack; // amount of damage done in an attack
+    /**
+     * A name of the pokémon
+     */
+    private String name;
+
+    /**
+     * The maximum health of a Pokémon
+     */
+    private final int maxHealth;
+
+    /**
+     * A current amount of a pokemon's health points
+     */
+    private int healthPoints;
+
+    /**
+     * Amount of damage done by a Pokémon in an attack
+     */
+    private int attack;
 
     public Pokemon(String name, int healthPoints, int attack) {
         this.name = name;
@@ -12,6 +30,7 @@ public class Pokemon {
         this.healthPoints = healthPoints;
         this.attack = attack;
     }
+
     public String getName() {
         return name;
     }

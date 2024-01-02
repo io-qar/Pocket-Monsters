@@ -18,6 +18,9 @@ public class Fight extends Command {
         this.game = game;
     }
 
+    /**
+     * Executes the fight command
+     */
     @Override
     public void execute() {
         if (player.getCurrentLocation().getClass() == GymLocation.class) {

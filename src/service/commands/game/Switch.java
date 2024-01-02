@@ -9,7 +9,11 @@ import service.commands.Command;
 public class Switch extends Command {
     private UserInput ui = new UserInput();
     private Player player;
-    private Battle battle = null; // if null, we are in game mode, else we are in battle mode
+
+    /**
+     * if null, we are in game mode, else we are in battle mode
+     */
+    private Battle battle = null;
 
     /**
      * switch in game mode
@@ -29,6 +33,9 @@ public class Switch extends Command {
         this.battle = battle;
     }
 
+    /**
+     * Executes the switch command
+     */
     @Override
     public void execute() {
         int numberOfPokemons = player.getPokemons().size();

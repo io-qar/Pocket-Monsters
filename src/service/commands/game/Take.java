@@ -7,11 +7,15 @@ import service.commands.Command;
 
 public class Take extends Command {
     private Player player;
+
     public Take(Player player) {
         super("take", "Pick up an item using 'take [item name]'", true);
         this.player = player;
     }
 
+    /**
+     * Executes the take command
+     */
     @Override
     public void execute() {
         // check if current location is an itemLocation

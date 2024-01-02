@@ -6,6 +6,9 @@ import service.commands.Command;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * {@code UserInput} class owns commands input functionality
+ */
 public class UserInput {
     private Scanner scanner;
 
@@ -13,6 +16,14 @@ public class UserInput {
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Prompts the user to enter an integer using the numbered list from {@code min} to {@code max}
+     * @param userInformation An input message
+     * @param errorInformation An error message in case of the incorrect entry
+     * @param min A lower limit of the selected command in the list
+     * @param max A higher limit of the selected command in the list
+     * @return The number of the selected command
+     */
     public int readConstrainedInteger(String userInformation, String errorInformation, int min, int max) {
         int constrainedIntegerInput = readInteger(userInformation, errorInformation);
         while ((constrainedIntegerInput < min) || (constrainedIntegerInput > max)) {
@@ -21,6 +32,12 @@ public class UserInput {
         return constrainedIntegerInput;
     }
 
+    /**
+     * Prompts the user to enter an integer
+     * @param userInformation An input message
+     * @param errorInformation An error message in case of the incorrect entry
+     * @return An integer
+     */
     public int readInteger(String userInformation, String errorInformation) {
         System.out.println(userInformation);
         while (!scanner.hasNextInt()) {
@@ -35,9 +52,10 @@ public class UserInput {
     }
 
     /**
-     * @param userInformation
-     * @param errorInformation
-     * @return the first word the user provided
+     * Prompts the user to enter a single word
+     * @param userInformation An input message
+     * @param errorInformation An error message in case of the incorrect entry
+     * @return The first word entered by the user
      */
     public String readWord(String userInformation, String errorInformation) {
         if (!userInformation.isEmpty()) {
@@ -56,9 +74,10 @@ public class UserInput {
     }
 
     /**
-     * @param userInformation
-     * @param errorInformation
-     * @return the whole line
+     * Prompts the user to enter a string
+     * @param userInformation An input message
+     * @param errorInformation An error message in case of the incorrect entry
+     * @return The string entered by the user
      */
     public String readLine(String userInformation, String errorInformation) {
         if (!userInformation.isEmpty()) {
@@ -72,6 +91,12 @@ public class UserInput {
         return this.scanner.nextLine();
     }
 
+    /**
+     * Checks if the entered command is correct
+     * @param player An instance of a player
+     * @param commands A map of game commands
+     * @return Requested command
+     */
     public Command command(Player player, Map<String, Command> commands) {
         System.out.printf("%s@%s: ", player.getName(), player.getCurrentLocation().getName());
         String userInput = readLine("", "Please enter a valid command.");
@@ -99,7 +124,6 @@ public class UserInput {
             System.out.println("\"" + requestedCommand.getName() + "\" doesn't require any arguments");
             return command(player, commands);
         }
-        // return requested command
         return requestedCommand;
     }
 }

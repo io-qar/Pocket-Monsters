@@ -13,6 +13,10 @@ public class Game {
     private UserInput ui = new UserInput();
     private Map map;
     private Player player;
+
+    /**
+     * Represents commands which can be typed in the console during the game
+     */
     HashMap<String, Command> commands;
 
     public Game() {
@@ -50,9 +54,9 @@ public class Game {
 
     public void stop(boolean won) {
         if (won) {
-            System.out.println("--------------- CONGRATS, YOU WON! ---------------");
+            System.out.println("=============== CONGRATS, YOU WON! =============");
         } else {
-            System.out.println("--------------- GAME OVER ---------------");
+            System.out.println("==================== GAME OVER =================");
         }
         inProgress = false;
     }
@@ -84,10 +88,5 @@ public class Game {
         Pokemon starterPokemon = new Pokemon(pokemonName, 12, 2);
         this.player.addPokemon(starterPokemon);
         System.out.println("Great choice! Now go out there and explore the world! \nIf at any point you are unsure what to do, simply call the \"help\" command.");
-
-        // add some pokemon/items manually for testing purposes
-//        this.player.addPokemon(new Pokemon("testPokemon", 5, 2));
-//        this.player.addItem(new HealthPotion("potion", 2));
-//        this.player.addItem(new PokeBall("masterball", 1));
     }
 }

@@ -7,14 +7,35 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Represents a current player entity
+ */
 public class Player {
     private String name;
-    // player's current coordinates
+
+    /**
+     * X coordinate
+     */
     private int x;
+
+    /**
+     * Y coordinate
+     */
     private int y;
+
+    /**
+     * A name of a location where the player is now
+     */
     private Location currentLocation;
 
+    /**
+     * A list of pokemons owned by the player
+     */
     private List<Pokemon> pokemons;
+
+    /**
+     * A list of items owned by the player
+     */
     private List<Item> inventory;
 
     public Player(Location startLocation) {
@@ -53,16 +74,23 @@ public class Player {
         return this.currentLocation;
     }
 
-    /******* Item related methods **********/
-
+    /**
+     * Add an {@link #entity.item.Item item} to the inventory
+     * @param item An item to be added to the inventory
+     */
     public void addItem(Item item) {
         this.inventory.add(item);
         System.out.println(item.getName() + " added to inventory!");
     }
 
+    /**
+     * Remove an item from the invetory
+     * @param item An item to be removed from the inventory
+     * @param displayMessages A message to be displayed about the dropped item
+     */
     public void removeItem(Item item, boolean displayMessages) {
         this.inventory.remove(item);
-        if (displayMessages) System.out.println("Dropped " + item.getName() + " from inventory.");
+        if (displayMessages) System.out.println(item.getName() + " has been dropped from your inventory.");
     }
 
     public void displayInventory() {
@@ -78,7 +106,10 @@ public class Player {
         return inventory;
     }
 
-    /******* Pokemon related methods **********/
+    /**
+     * Adds a pokemon to the {@link #pokemons list of pokemons}
+     * @param pokemon
+     */
     public void addPokemon(Pokemon pokemon) {
         this.pokemons.add(pokemon);
         System.out.println(pokemon.getName() + " was added to your Pokémon!");
@@ -88,14 +119,18 @@ public class Player {
         return pokemons;
     }
 
+    /**
+     * A main pokemon of the player.
+     * @return The first one by default. Another option would be to keep a seperate instance  variable 'activePokemon' which points to the current active Pokémon in pokemons.
+     */
     public Pokemon getActivePokemon() {
-        // first Pokémon is active Pokémon. Another option would be to keep a seperate instance variable 'activePokemon' which points to the current active Pokémon in pokemons.
         return pokemons.get(0);
     }
 
     /**
-     * @param newIndex index of new active Pokémon
-     * @return new active Pokemon, null if failed.
+     * Switches the active pokemon with another one.
+     * @param newIndex An index of new active Pokémon in the {@link #pokemons list of the pokemons}
+     * @return A new active Pokemon, {@code null} if failed.
      */
     public Pokemon switchActivePokemon(int newIndex) {
         if (newIndex < 0 || newIndex > pokemons.size() - 1) {

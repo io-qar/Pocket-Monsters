@@ -11,6 +11,9 @@ public class Pokemons extends Command {
         this.player = player;
     }
 
+    /**
+     * Executes the pokemons command
+     */
     @Override
     public void execute() {
         player.displayPokemons();

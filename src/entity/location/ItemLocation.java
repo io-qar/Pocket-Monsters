@@ -2,6 +2,9 @@ package entity.location;
 
 import entity.item.Item;
 
+/**
+ * Represents a {@see entity.location.Location Location} containing an Item.
+ */
 public class ItemLocation extends Location {
     private Item item;
 

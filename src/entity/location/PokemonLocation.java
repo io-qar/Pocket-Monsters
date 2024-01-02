@@ -2,6 +2,9 @@ package entity.location;
 
 import entity.Pokemon;
 
+/**
+ * Represents a {@see entity.location.Location Location} containing a Pokemon.
+ */
 public class PokemonLocation extends Location {
     private Pokemon pokemon;
 

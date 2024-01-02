@@ -2,6 +2,9 @@ package entity.location;
 
 import entity.Pokemon;
 
+/**
+ * Represents a {@see entity.location.Location Location} containing a final location with a Gym Trainer.
+ */
 public class GymLocation extends Location {
     private Pokemon pokemon;
     String gymTrainer;

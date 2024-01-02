@@ -15,7 +15,7 @@ public class HealthPotion extends Item {
     }
 
     /**
-     * @return true if a pokemon got healed and potion was used. false if potion wasn't used.
+     * @return {#code True} if a pokemon got healed and potion was used. {@code False} if potion wasn't used.
      */
     public boolean use(Player player) {
         List<Pokemon> pokemons = player.getPokemons();

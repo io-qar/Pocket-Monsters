@@ -11,6 +11,9 @@ public class Inventory extends Command {
         this.player = player;
     }
 
+    /**
+     * Executes the inventory command
+     */
     @Override
     public void execute() {
         player.displayInventory();

@@ -11,8 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
-    int width; // number of locations in x direction (columns)
-    int height; // number of locations in y direction (rows)
+    /**
+     * A number of locations on the X axis (columns)
+     */
+    int width;
+
+    /**
+     * A number of locations on the Y axis (rows)
+     */
+    int height;
+
     int currentX;
     int currentY;
     List<List<Location>> locations;

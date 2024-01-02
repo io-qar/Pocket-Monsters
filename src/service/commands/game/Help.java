@@ -14,6 +14,9 @@ public class Help extends Command {
         this.inBattleContext = inBattleContext;
     }
 
+    /**
+     * Executes the help command
+     */
     @Override
     public void execute() {
         System.out.println("Here is a list of all possible " + (inBattleContext ? "battle " : "") + "commands and what they do:");

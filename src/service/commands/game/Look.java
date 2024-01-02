@@ -8,17 +8,21 @@ import service.commands.Command;
 public class Look extends Command {
     private Player player;
     private Game game;
+
     public Look(Player player, Game game) {
         super("look", "Look around in your current location.", false);
         this.player = player;
         this.game = game;
     }
 
+    /**
+     * Executes the look command
+     */
     @Override
     public void execute() {
         System.out.println(player.getCurrentLocation().lookAround());
-
-        /** comment/uncomment this part to not have/have pokemon battles starting automatically upon looking */
+        // comment/uncomment this part to not have/have pokemon battles starting automatically upon looking
+        
         /*if (player.getCurrentLocation().getClass() == PokemonLocation.class) {
             // cast the location to a pokemonLocation
             PokemonLocation currentLoc = (PokemonLocation) player.getCurrentLocation();

@@ -18,7 +18,6 @@ public class Location {
     }
 
     public String lookAround() {
-        // return this.getDescription();
-        return "Nothing found here... keep exploring!";
+        return "Nothing interesting found here... keep exploring!\n\n" + this.getDescription();
     }
 }

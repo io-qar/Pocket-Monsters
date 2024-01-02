@@ -8,11 +8,15 @@ import java.util.List;
 
 public class Drop extends Command {
     private Player player;
+
     public Drop(Player player) {
         super("drop", "Drop an item using 'drop [item name]'", true);
         this.player = player;
     }
 
+    /**
+     * Executes the drop command
+     */
     @Override
     public void execute() {
         List<Item> inventory = player.getInventory();

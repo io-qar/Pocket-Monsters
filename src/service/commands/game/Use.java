@@ -12,9 +12,21 @@ import java.util.List;
 
 public class Use extends Command {
     private Player player;
-    private Pokemon enemyPokemon = null; // if null, we are not in battle context
-    private Battle battle = null; // if null, we are not in battle context
-    private boolean isGymBattle; // if false, it's a normal pokemon battle. If true, it's a gym battle
+
+    /**
+     * if null, we are not in battle context
+     */
+    private Pokemon enemyPokemon = null;
+
+    /**
+     * if null, we are not in battle context
+     */
+    private Battle battle = null;
+
+    /**
+     * if false, it's a normal pokemon battle. If true, it's a gym battle
+     */
+    private boolean isGymBattle;
 
     /**
      * In general game context
@@ -37,6 +49,9 @@ public class Use extends Command {
         this.isGymBattle = isGymBattle;
     }
 
+    /**
+     * Executes the game command
+     */
     @Override
     public void execute() {
         executedSuccessfully = false;
