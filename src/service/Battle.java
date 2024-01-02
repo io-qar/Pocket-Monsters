@@ -84,7 +84,7 @@ public class Battle {
      * Represents the Player's move during the battle
      */
     private void ownMove() {
-        System.out.println("What is your next move? (Type \"help\" for a list of commands)");
+        System.out.println("What is your next move? (Type \"help\" for a list of battle commands)");
         Command cmd = ui.command(this.player, this.commands);
         cmd.execute();
         if (cmd.getName() == "switch" || cmd.getName() == "help" || cmd.getName() == "inventory" || cmd.getName() == "pokemons" || (cmd.getName() == "use" && !cmd.isExecutedSuccessfully()) || (cmd.getName() == "run" && !cmd.isExecutedSuccessfully())) {
