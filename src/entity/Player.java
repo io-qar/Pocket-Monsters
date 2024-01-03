@@ -75,7 +75,7 @@ public class Player {
     }
 
     /**
-     * Add an {@link #entity.item.Item item} to the inventory
+     * Add an {@link Item item} to the inventory
      * @param item An item to be added to the inventory
      */
     public void addItem(Item item) {
@@ -107,7 +107,7 @@ public class Player {
     }
 
     /**
-     * Adds a pokemon to the {@link #pokemons list of pokemons}
+     * Adds a {@link Pokemon} to the {@link #pokemons list of pokemons}
      * @param pokemon
      */
     public void addPokemon(Pokemon pokemon) {
@@ -138,7 +138,7 @@ public class Player {
             return null;
         }
         if (pokemons.get(newIndex).hasFainted()) {
-            System.out.println("Cannot switch to a fainted Pokémon! You need to ressurect him first!");
+            System.out.println("Cannot switch to a fainted Pokémon!");
             return null;
         }
         Collections.swap(pokemons, 0, newIndex);
@@ -147,10 +147,12 @@ public class Player {
     }
 
     public void displayPokemons() {
-        System.out.println(" _____ACTIVE POKEMON_____\n" + pokemons.get(0));
-
-        for (int i = 1; i < pokemons.size(); i++) {
-            System.out.println(i + ") " + pokemons.get(i));
+        for (int i = 0; i < pokemons.size(); i++) {
+            if (i == 0) {
+                System.out.println(i + 1 + ") " + pokemons.get(i) + " <-- active");
+            } else {
+                System.out.println(i + 1 + ") " + pokemons.get(i));
+            }
         }
     }
 

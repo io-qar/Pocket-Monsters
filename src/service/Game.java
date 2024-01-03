@@ -4,6 +4,7 @@ import entity.Map;
 import entity.Player;
 import entity.Pokemon;
 import service.commands.Command;
+import service.commands.battle.Cheat;
 import service.commands.game.*;
 
 import java.util.HashMap;
@@ -54,9 +55,9 @@ public class Game {
 
     public void stop(boolean won) {
         if (won) {
-            System.out.println("=============== CONGRATS, YOU WON! =============");
+            System.out.println("================ CONGRATS, YOU WON! ===============");
         } else {
-            System.out.println("==================== GAME OVER =================");
+            System.out.println("==================== GAME OVER ====================");
         }
         inProgress = false;
     }
@@ -66,7 +67,7 @@ public class Game {
     }
 
     private void giveIntroduction() {
-        String name = ui.readLine("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name: ");
+        String name = ui.readLine("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
         this.player.setName(name);
         System.out.printf("Hi %s!\n", name);
 

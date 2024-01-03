@@ -19,13 +19,13 @@ public class Revive extends Item {
   public boolean use(Player player) {
     List<Pokemon> pokemons = player.getPokemons();
     int numberOfPokemons = pokemons.size();
-    int countNotHealable = 0;
+    int countNotRevivable = 0;
 
     for (Pokemon p : pokemons) {
-      if (!pokemonCanBeHealed(p, false)) countNotHealable++;
+      if (!p.hasFainted()) countNotRevivable++;
     }
-    if (countNotHealable == numberOfPokemons) {
-      System.out.println("All of your pokemons have full health!");
+    if (countNotRevivable == numberOfPokemons) {
+      System.out.println("All your Pokémon are alive and kicking! Try again later.");
       return false;
     }
 
@@ -34,21 +34,14 @@ public class Revive extends Item {
     int newPokemonChoice = ui.readConstrainedInteger("Which Pokémon would you like to revive? Pick a number.", "Please select a number between " + 1 + " and " + numberOfPokemons, 1, numberOfPokemons);
 
     Pokemon selectedPokemon = pokemons.get(newPokemonChoice - 1);
-    if (pokemonCanBeHealed(selectedPokemon, true)) {
+    if (selectedPokemon.hasFainted()) {
         int pokemonMaxHealth = selectedPokemon.getMAXHEALTH();
         selectedPokemon.heal(pokemonMaxHealth);
-        // remove healthpotion from inventory after use
+        // remove revive from inventory after use
         player.removeItem(this, false);
         return true;
     }
+    System.out.println("You can only revive a fainted Pokémon.");
     return false;
-  }
-
-  private boolean pokemonCanBeHealed(Pokemon p, boolean displayMessages) {
-    if (p.getHealthPoints() == p.getMAXHEALTH()) {
-      if (displayMessages) System.out.println(p.getName() + " is already full HP!");
-      return false;
-    }
-    return true;
   }
 }

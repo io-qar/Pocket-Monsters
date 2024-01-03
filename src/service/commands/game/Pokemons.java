@@ -7,7 +7,7 @@ public class Pokemons extends Command {
     private Player player;
 
     public Pokemons(Player player) {
-        super("pokemons", "Display all your Pokémons.", false);
+        super("pokemons", "Display your Pokémon.", false);
         this.player = player;
     }
 

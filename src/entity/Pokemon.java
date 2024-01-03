@@ -75,9 +75,6 @@ public class Pokemon {
     }
 
     public String toString() {
-        return " ________________________\n| " +
-            getName() + " (" + healthPoints + "/" + MAXHEALTH + " hp)\t |\n" +
-            "| Attack: " + getAttack() + "\t\t |\n" +
-            "|________________________|";
+        return getName() + " (" + healthPoints + "/" + MAXHEALTH + " hp)";
     }
 }

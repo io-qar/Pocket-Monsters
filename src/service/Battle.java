@@ -43,7 +43,8 @@ public class Battle {
         addCommand(new Pokemons(player));
         addCommand(new Inventory(player));
         addCommand(new Use(player, enemyPokemon, this, isGymBattle));
-        addCommand(new Cheat(this, isGymBattle));
+        // cheat command which lets you instantly defeat the enemy
+        // addCommand(new Cheat(this));
     }
 
     public Pokemon getOwnPokemon() {
@@ -122,9 +123,13 @@ public class Battle {
     }
 
     /**
-     * Displayes names of pokemons, thier health and damage points during the battle
+     * Displays names and health of both Pokémon during the battle
      */
     private void displayBattleStatus() {
-        System.out.println(ownPokemon + "\n\t   vs\n" + enemyPokemon);
+        String boxText = (ownPokemon + " vs " + enemyPokemon);
+        int boxHorizontalLength = boxText.length() * 2;
+        System.out.println("-".repeat(boxHorizontalLength));
+        System.out.println("|" + " ".repeat(boxHorizontalLength / 4 - 1) + boxText + " ".repeat(boxHorizontalLength / 4 - 1) + "|");
+        System.out.println("-".repeat(boxHorizontalLength));
     }
 }

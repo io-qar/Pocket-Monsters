@@ -22,7 +22,7 @@ public class PokeBall extends Item {
     }
 
     /**
-     * The weaker the pokémon, the higher the chance of catching it. Plus one, so you have a chance of catching a full HP pokemon and so the chance of catching a 1 HP pokémon is maximal.
+     * The weaker the pokémon, the higher the chance of catching it. Added one, so you have a chance of catching a full HP pokemon and so the chance of catching a 1 HP pokémon is maximal.
      * @param player Current player
      * @param enemyPokemon
      * @param battle

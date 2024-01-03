@@ -5,6 +5,7 @@ import entity.Pokemon;
 import entity.item.HealthPotion;
 import entity.item.Item;
 import entity.item.PokeBall;
+import entity.item.Revive;
 import service.Battle;
 import service.commands.Command;
 
@@ -61,8 +62,10 @@ public class Use extends Command {
         } else {
             boolean itemFound = false;
             for (Item item : inventory) {
+                // check if the argument user provided exists in the inventory
                 if (argument.equalsIgnoreCase(item.getName())) {
-                    if (item.getClass() == PokeBall.class && enemyPokemon == null) {
+                    // if item was found, check which type of item it is and use it if possible
+                    if (item.getClass() == PokeBall.class && battle == null) {
                         // trying to use pokeball outside of battle context
                         System.out.println("You can only use Pokéballs in battle!");
                     } else if (item.getClass() == PokeBall.class && isGymBattle) {
@@ -71,8 +74,13 @@ public class Use extends Command {
                         // using pokeball in battle
                         ((PokeBall) item).use(player, enemyPokemon, battle);
                         executedSuccessfully = true;
+                    }  else if (item.getClass() == Revive.class && battle != null) {
+                        // trying to use a revive in battle context
+                        System.out.println("Can't use revives in battle!");
+                    } else if (item.getClass() == Revive.class) {
+                        executedSuccessfully = ((Revive) item).use(player);
                     } else {
-                        // it's a health potion (we only have pokeballs and healthpotions, but this could easily be extended to more items)
+                        // it's a health potion
                         executedSuccessfully = ((HealthPotion) item).use(player);
                     }
                     itemFound = true;
