@@ -66,7 +66,7 @@ public class Game {
     }
 
     private void giveIntroduction() {
-        String name = ui.readLine("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name.");
+        String name = ui.readLine("Welcome to Pallet Town! My name is Professor Oak. What's yours?", "Please enter a valid name: ");
         this.player.setName(name);
         System.out.printf("Hi %s!\n", name);
 

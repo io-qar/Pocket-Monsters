@@ -9,6 +9,7 @@ import java.util.List;
 public class HealthPotion extends Item {
     private int healthPoints;
     private UserInput ui = new UserInput();
+
     public HealthPotion(String name, int healthPoints) {
         super(name);
         this.healthPoints = healthPoints;
@@ -30,12 +31,12 @@ public class HealthPotion extends Item {
         }
 
         player.displayPokemons();
-        // let user pick a number between 1 and (nr. of Pokemons)
-        int newPokemonChoice = ui.readConstrainedInteger("Which Pokémon would you like to heal? Pick a number.", "Please choose a number between " + 1 + " and " + numberOfPokemons,1, numberOfPokemons);
-        if (pokemonCanBeHealed(pokemons.get(newPokemonChoice - 1), true)) {
-            // heal the pokemon
-            pokemons.get(newPokemonChoice - 1).heal(healthPoints);
-            // remove healthpotion from inventory after use
+        int newPokemonChoice = ui.readConstrainedInteger("Which Pokémon would you like to heal? Pick a number.", "Please select a number between 1 and " + numberOfPokemons, 1, numberOfPokemons);
+
+        Pokemon selectedPokemon = pokemons.get(newPokemonChoice - 1);
+        if (pokemonCanBeHealed(selectedPokemon, true)) {
+            selectedPokemon.heal(healthPoints);
+            // remove revive item from inventory after use
             player.removeItem(this, false);
             return true;
         }
@@ -47,7 +48,7 @@ public class HealthPotion extends Item {
             if (displayMessages) System.out.println("Cannot heal a fainted Pokémon!");
             return false;
         }
-        if (p.getHealthPoints() == p.getMaxHealth()) {
+        if (p.getHealthPoints() == p.getMAXHEALTH()) {
             if (displayMessages) System.out.println(p.getName() + " is already full HP!");
             return false;
         }

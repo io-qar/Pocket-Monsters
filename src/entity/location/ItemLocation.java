@@ -17,9 +17,8 @@ public class ItemLocation extends Location {
     public String lookAround() {
         if (item == null) {
             return super.lookAround();
-        } else {
-            return "Found a " + item.getName() + " on the ground!";
         }
+        return "Found a " + item.getName() + " on the ground!";
     }
 
     public void removeItem() {

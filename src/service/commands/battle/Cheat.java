@@ -17,7 +17,7 @@ public class Cheat extends Command {
     private boolean myAttack;
 
     public Cheat(Battle battle, boolean myAttack) {
-      super("uuddlrlrba", "Instantly defeat the enemy ", false);
+      super("uuddlrlrba", "Instantly defeat the enemy", false);
       this.battle = battle;
       this.myAttack = myAttack;
     }
@@ -32,12 +32,12 @@ public class Cheat extends Command {
         int attackingPokemonAttack = 0;
 
         if (myAttack) {
-            attackingPokemon = battle.getOwnPokemon();
-            attackedPokemon = battle.getEnemyPokemon();
-            attackingPokemonAttack = Integer.MAX_VALUE;
+          attackingPokemon = battle.getOwnPokemon();
+          attackedPokemon = battle.getEnemyPokemon();
+          attackingPokemonAttack = Integer.MAX_VALUE;
         } else {
-            attackingPokemon = battle.getEnemyPokemon();
-            attackedPokemon = battle.getOwnPokemon();
+          attackingPokemon = battle.getEnemyPokemon();
+          attackedPokemon = battle.getOwnPokemon();
         }
 
         attackedPokemon.isAttacked(attackingPokemonAttack);

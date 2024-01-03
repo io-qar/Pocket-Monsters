@@ -17,9 +17,8 @@ public class PokemonLocation extends Location {
     public String lookAround() {
         if (pokemon == null) {
             return super.lookAround();
-        } else {
-            return "Encountered a wild " + pokemon.getName() + "!";
         }
+        return "Encountered a wild " + pokemon.getName() + "!";
     }
 
     public void removePokemon() {

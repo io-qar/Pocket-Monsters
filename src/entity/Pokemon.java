@@ -12,7 +12,7 @@ public class Pokemon {
     /**
      * The maximum health of a Pokémon
      */
-    private final int maxHealth;
+    private final int MAXHEALTH;
 
     /**
      * A current amount of a pokemon's health points
@@ -26,7 +26,7 @@ public class Pokemon {
 
     public Pokemon(String name, int healthPoints, int attack) {
         this.name = name;
-        this.maxHealth = healthPoints;
+        this.MAXHEALTH = healthPoints;
         this.healthPoints = healthPoints;
         this.attack = attack;
     }
@@ -35,8 +35,8 @@ public class Pokemon {
         return name;
     }
 
-    public int getMaxHealth() {
-        return maxHealth;
+    public int getMAXHEALTH() {
+        return MAXHEALTH;
     }
 
     public int getAttack() {
@@ -61,8 +61,8 @@ public class Pokemon {
 
     public void heal(int amount) {
         int newHealth = healthPoints + amount;
-        if (newHealth >= maxHealth) {
-            healthPoints = maxHealth;
+        if (newHealth >= MAXHEALTH) {
+            healthPoints = MAXHEALTH;
             System.out.println(name + " was restored to full HP!");
         } else {
             healthPoints += amount;
@@ -75,6 +75,9 @@ public class Pokemon {
     }
 
     public String toString() {
-        return getName() + " (" + healthPoints + "/" + maxHealth + " hp)";
+        return " ________________________\n| " +
+            getName() + " (" + healthPoints + "/" + MAXHEALTH + " hp)\t |\n" +
+            "| Attack: " + getAttack() + "\t\t |\n" +
+            "|________________________|";
     }
 }

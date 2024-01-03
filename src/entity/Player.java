@@ -80,7 +80,7 @@ public class Player {
      */
     public void addItem(Item item) {
         this.inventory.add(item);
-        System.out.println(item.getName() + " added to inventory!");
+        System.out.println(item.getName() + " was added to inventory!");
     }
 
     /**
@@ -138,7 +138,7 @@ public class Player {
             return null;
         }
         if (pokemons.get(newIndex).hasFainted()) {
-            System.out.println("Cannot switch to a fainted Pokémon!");
+            System.out.println("Cannot switch to a fainted Pokémon! You need to ressurect him first!");
             return null;
         }
         Collections.swap(pokemons, 0, newIndex);
@@ -147,12 +147,10 @@ public class Player {
     }
 
     public void displayPokemons() {
-        for (int i = 0; i < pokemons.size(); i++) {
-            if (i == 0) {
-                System.out.println(i + 1 + ") " + pokemons.get(i) + " <-- active");
-            } else {
-                System.out.println(i + 1 + ") " + pokemons.get(i));
-            }
+        System.out.println(" _____ACTIVE POKEMON_____\n" + pokemons.get(0));
+
+        for (int i = 1; i < pokemons.size(); i++) {
+            System.out.println(i + ") " + pokemons.get(i));
         }
     }
 

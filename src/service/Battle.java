@@ -121,12 +121,10 @@ public class Battle {
         }
     }
 
+    /**
+     * Displayes names of pokemons, thier health and damage points during the battle
+     */
     private void displayBattleStatus() {
-        // display both pokemons health clearly in a nice box
-        String boxText = (ownPokemon + " vs " + enemyPokemon);
-        int boxHorizontalLength = boxText.length() * 2;
-        System.out.println("-".repeat(boxHorizontalLength));
-        System.out.println("|" + " ".repeat(boxHorizontalLength / 4 - 1) + boxText + " ".repeat(boxHorizontalLength / 4 - 1) + "|");
-        System.out.println("-".repeat(boxHorizontalLength));
+        System.out.println(ownPokemon + "\n\t   vs\n" + enemyPokemon);
     }
 }

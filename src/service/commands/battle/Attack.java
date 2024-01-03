@@ -19,7 +19,7 @@ public class Attack extends Command {
     }
 
     /**
-     * Executes the attack command
+     * Executes the attack command. An attacking pokemon and an attacked one are being swapped each turn.
      */
     @Override
     public void execute() {

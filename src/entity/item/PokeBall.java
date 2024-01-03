@@ -28,7 +28,7 @@ public class PokeBall extends Item {
      * @param battle
      */
     public void use(Player player, Pokemon enemyPokemon, Battle battle) {
-        double pokemonCatchRate = ((double) enemyPokemon.getMaxHealth() - enemyPokemon.getHealthPoints() + 1) / enemyPokemon.getMaxHealth(); // between 0 and 1
+        double pokemonCatchRate = ((double) enemyPokemon.getMAXHEALTH() - enemyPokemon.getHealthPoints() + 1) / enemyPokemon.getMAXHEALTH(); // between 0 and 1
         double catchRate = ballCatchRate * pokemonCatchRate + catchConstant;
 
         // for this, I used ChatGPT to have a quick way to generate a random boolean with a specific probability
@@ -36,7 +36,7 @@ public class PokeBall extends Item {
 
         if (caught) {
             System.out.println("Gotcha!");
-            enemyPokemon.setHealthPoints(enemyPokemon.getMaxHealth()); // restore pokémon to full HP
+            enemyPokemon.setHealthPoints(enemyPokemon.getMAXHEALTH()); // restore pokémon to full HP
             player.addPokemon(enemyPokemon); // add pokemon to player's pokeomn
             PokemonLocation currentLoc = (PokemonLocation) player.getCurrentLocation();
             currentLoc.removePokemon(); // remove pokemon from location

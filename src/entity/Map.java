@@ -2,6 +2,7 @@ package entity;
 
 import entity.item.HealthPotion;
 import entity.item.PokeBall;
+import entity.item.Revive;
 import entity.location.GymLocation;
 import entity.location.ItemLocation;
 import entity.location.Location;
@@ -58,7 +59,8 @@ public class Map {
         Location forest = new PokemonLocation( "ViridianForest", "You find yourself surrounded by towering trees, their leaves dappled in sunlight, as the gentle hum of Bug-type Pokémon fills the air.", caterpie);
         addLocation(forest);
 
-        Location garden = new Location( "EternalGarden", "The Eternal Garden exudes tranquility with its blooming flora and trickling streams, a serene oasis that invites exploration amidst its serene and verdant surroundings.");
+        Revive reviveItem = new Revive("Max Potion");
+        ItemLocation garden = new ItemLocation( "EternalGarden", "The Eternal Garden exudes tranquility with its blooming flora and trickling streams, a serene oasis that invites exploration amidst its serene and verdant surroundings.", reviveItem);
         addLocation(garden);
 
         HealthPotion potion2 = new HealthPotion("big potion", 10);
