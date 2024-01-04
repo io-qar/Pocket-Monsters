@@ -11,9 +11,9 @@ The final goal is to defeat the gym trainer. He owns a very strong Pokémon, so 
 1. Run main.
 2. Follow the instructions in the introduction.
 3. Enjoy and explore the game, but keep your Pokémon alive! Use the commands below to play.
-4. Your ultimate goal is to defeat the Gym Trainer! Of course, you have to find him first...
+4. Your ultimate goal is to defeat the gym trainer. Of course, you have to find him first...
 
-## List of in-game commands:
+## List of general commands:
 - `north`, `east`, `south`, `west` commands to move;
 - `exit` command to exit the game;
 - `help` to get a list of commands;
@@ -24,4 +24,13 @@ The final goal is to defeat the gym trainer. He owns a very strong Pokémon, so 
 - `use [item name]` to use an item;
 - `drop` to drop an item;
 - `fight [opponent name]` to fight an enemy;
+- `switch` to change your currently active pokemon;
+
+## List of battle commands:
+- `attack` to attack the enemy;
+- `run` to run from the battle;
+- `help` to get a list of commands;
+- `inventory` to look through your inventory;
+- `pokemons` to show your pokemons;
+- `use [item name]` to use an item;
 - `switch` to change your currently active pokemon;
